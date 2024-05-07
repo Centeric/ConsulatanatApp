@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "z/wFYHcnP31COO2gHwdZQEQ6fYoFzc5UV1kI6bWzXEkl0EU2eDe1iUwi0mgdloPCScvM8iumR4jeCKt2f871cA==",
+  "dgSpecHash": "Q2iUUQXNdooFrY10GZEwWyeiGDmZdV2zlzFbaFdqrX3bB09DG8TXMljdu8DRSwKM3BlRSn2k5LQHiiejDBZXDw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp\\LawyerApp.csproj",
+  "projectFilePath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\LawyerApp\\LawyerApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\CentricTech\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\CentricTech\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

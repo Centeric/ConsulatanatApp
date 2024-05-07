@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 
 namespace LawyerApp.DataAccessLayer.Infrastructure.IServices
 {
-    public interface IUnitOfWork
+    public interface IUnitOfWork:IDisposable
     {
-
+        IConsultantRepository Consultants { get; }
+        int Save();
     }
 }

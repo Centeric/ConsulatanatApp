@@ -2480,9 +2480,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp\\LawyerApp.csproj",
+      "projectUniqueName": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\LawyerApp\\LawyerApp.csproj",
       "projectName": "LawyerApp",
-      "projectPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp\\LawyerApp.csproj",
+      "projectPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\LawyerApp\\LawyerApp.csproj",
       "packagesPath": "C:\\Users\\CentricTech\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp\\obj\\",
       "projectStyle": "PackageReference",
@@ -2505,8 +2505,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\DataAccessLayer\\LawyerApp.DataAccessLayer.csproj": {
-              "projectPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\DataAccessLayer\\LawyerApp.DataAccessLayer.csproj"
+            "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\DataAccessLayer\\LawyerApp.DataAccessLayer.csproj": {
+              "projectPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\DataAccessLayer\\LawyerApp.DataAccessLayer.csproj"
             }
           }
         }
