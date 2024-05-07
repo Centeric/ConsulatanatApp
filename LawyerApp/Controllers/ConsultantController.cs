@@ -21,7 +21,7 @@ namespace LawyerApp.Controllers
 
             if (isConsultanCreated)
             {
-                return Ok(isConsultanCreated);
+                return Ok(new { message = "Added Succesfully" });
             }
             else
             {
