@@ -77,7 +77,7 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.Services
                 var result = await _unitOfWork.Consultants.GetById(consultant.Id);
                 if (result != null)
                 {
-                    result.ConsultationId = consultant.ConsultationId;
+                   // result.ConsultationId = consultant.ConsultationId;
                     result.ConsultationName = consultant.ConsultationName;
                     result.ClientName = consultant.ClientName;
                     result.ConsultationStatus = consultant.ConsultationStatus;

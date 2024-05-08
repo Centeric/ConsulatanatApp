@@ -33,7 +33,7 @@ namespace LawyerApp.Controllers
             }
             else
             {
-                return BadRequest("Error");
+                return BadRequest(new { message = "Error" });
             }
         }
         [HttpGet("GetbyId")]
@@ -47,7 +47,7 @@ namespace LawyerApp.Controllers
             }
             else
             {
-                return BadRequest("Error");
+                return BadRequest(new { message = "Error" });
             }
         }
         [HttpPut("Update")]
@@ -60,11 +60,11 @@ namespace LawyerApp.Controllers
                 {
                     return Ok(new { message = "Updated Successfully" });
                 }
-                return BadRequest("Error");
+                return BadRequest(new { message = "Error" });
             }
             else
             {
-                return BadRequest("Data Not Found");
+                return BadRequest(new { message = "Data Not Found" });
             }
         }
         [HttpDelete("DeleteById")]
