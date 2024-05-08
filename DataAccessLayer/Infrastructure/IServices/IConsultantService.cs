@@ -17,6 +17,6 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.IServices
 
         Task<bool> UpdateConsultation(Consultant consultant);
 
-        ////Task<bool> DeleteProduct();
+        Task<bool> DeleteById(int id);
     }
 }

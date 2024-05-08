@@ -31,15 +31,29 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.Services
             return false;
         }
 
-        //public Task<bool> DeleteProduct()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public async Task<bool> DeleteById(int id)
+        {
+            if (id > 0)
+            {
+                var result = await _unitOfWork.Consultants.GetById(id);
+                if (result != null)
+                {
+                    _unitOfWork.Consultants.Delete(result);
+                    var response = _unitOfWork.Save();
 
-        //public Task<IEnumerable<Consultant>> GetAll()
-        //{
-        //    throw new NotImplementedException();
-        //}
+                    if (response > 0)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+            return false;
+        }
+
+        public Task<IEnumerable<Consultant>> GetAll()
+        {
+            throw new NotImplementedException();
+        }
 
         public async Task<Consultant> GetConsultantById(string consultationId)
         {

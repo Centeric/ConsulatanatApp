@@ -17,9 +17,17 @@ namespace LawyerApp.Controllers
         [HttpPost("AddNew")]
         public async Task<IActionResult> Create(Consultant consultant)
         {
-            var isConsultanCreated = await _consultantService.Create(consultant);
+            var existingConsultant = await _consultantService.GetConsultantById(consultant.ConsultationId);
 
-            if (isConsultanCreated)
+            if (existingConsultant != null)
+            {
+
+                return BadRequest(new { message = "ConsultationId already exists." });
+            }
+
+            var isConsultantCreated = await _consultantService.Create(consultant);
+
+            if (isConsultantCreated)
             {
                 return Ok(new { message = "Added Succesfully" });
             }
@@ -35,7 +43,7 @@ namespace LawyerApp.Controllers
 
             if (result != null)
             {
-                return Ok(new {message = "Data Loaded Successfully"});
+                return Ok(new { message = "Data Loaded Successfully", result });
             }
             else
             {
@@ -57,6 +65,19 @@ namespace LawyerApp.Controllers
             else
             {
                 return BadRequest("Data Not Found");
+            }
+        }
+        [HttpDelete("DeleteById")]
+        public async Task<IActionResult> DeleteById(int id)
+        {
+            var result = await _consultantService.DeleteById(id);
+            if (result)
+            {
+                return Ok(new { message = "Data Deleted Successfully" });
+            }
+            else
+            {
+                return BadRequest(new { message = "Id Not Found" });
             }
         }
     }

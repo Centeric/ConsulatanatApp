@@ -48,7 +48,7 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.Services
         }
         public async Task<Consultant> GetByConsultationId(string consultationId)
         {
-            return await _dbContext.Set<Consultant>().FindAsync(consultationId);
+            return await _dbContext.Set<Consultant>().FirstOrDefaultAsync(c => c.ConsultationId == consultationId);
         }
     }
 }
