@@ -41,14 +41,50 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.Services
         //    throw new NotImplementedException();
         //}
 
-        //public Task<Consultant> GetConsultantById()
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public async Task<Consultant> GetConsultantById(string consultationId)
+        {
 
-        //public Task<bool> UpdateProduct(Consultant consultant)
-        //{
-        //    throw new NotImplementedException();
-        //}
+            if (!string.IsNullOrEmpty(consultationId))
+            {
+                var result = await _unitOfWork.Consultants.
+                    GetByConsultationId(consultationId);
+                if (result != null)
+                {
+                    return result;
+                }
+            }
+            return null;
+        }
+
+        public async Task<bool> UpdateConsultation(Consultant consultant)
+        {
+            if (consultant != null)
+            {
+                var result = await _unitOfWork.Consultants.GetById(consultant.Id);
+                if (result != null)
+                {
+                    result.ConsultationId = consultant.ConsultationId;
+                    result.ConsultationName = consultant.ConsultationName;
+                    result.ClientName = consultant.ClientName;
+                    result.ConsultationStatus = consultant.ConsultationStatus;
+                    result.TimeShare = consultant.TimeShare;
+                    result.PaymentReceived = consultant.PaymentReceived;
+                    result.LeadConsultant = consultant.LeadConsultant;
+                    result.AssistantConsultant = consultant.AssistantConsultant;
+                    result.DeadlineForDocumentSubmission = consultant.DeadlineForDocumentSubmission;
+                    result.DateOfTransfer = consultant.DateOfTransfer;
+
+                    _unitOfWork.Consultants.Update(result);
+
+                    var response = _unitOfWork.Save();
+
+                    if (response > 0)
+                        return true;
+                    else
+                        return false;
+                }
+            }
+            return false;
+        }
     }
 }

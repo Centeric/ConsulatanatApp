@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer;
 using LawyerApp.DataAccessLayer.Infrastructure.IServices;
+using LawyerApp.Models.Model;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -32,6 +33,10 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.Services
             return await _dbContext.Set<T>().ToListAsync();
         }
 
+        public async Task<T> GetById(string id)
+        {
+            return await _dbContext.Set<T>().FindAsync(id);
+        }
         public async Task<T> GetById(int id)
         {
             return await _dbContext.Set<T>().FindAsync(id);
@@ -40,6 +45,10 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.Services
         public void Update(T entity)
         {
             _dbContext.Set<T>().Update(entity);
+        }
+        public async Task<Consultant> GetByConsultationId(string consultationId)
+        {
+            return await _dbContext.Set<Consultant>().FindAsync(consultationId);
         }
     }
 }

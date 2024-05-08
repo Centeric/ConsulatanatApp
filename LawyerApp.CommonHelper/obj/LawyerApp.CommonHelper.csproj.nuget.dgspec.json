@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\LawyerApp.CommonHelper\\LawyerApp.CommonHelper.csproj": {}
+    "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp.CommonHelper\\LawyerApp.CommonHelper.csproj": {}
   },
   "projects": {
-    "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\LawyerApp.CommonHelper\\LawyerApp.CommonHelper.csproj": {
+    "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp.CommonHelper\\LawyerApp.CommonHelper.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\LawyerApp.CommonHelper\\LawyerApp.CommonHelper.csproj",
+        "projectUniqueName": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp.CommonHelper\\LawyerApp.CommonHelper.csproj",
         "projectName": "LawyerApp.CommonHelper",
-        "projectPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\LawyerApp.CommonHelper\\LawyerApp.CommonHelper.csproj",
+        "projectPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp.CommonHelper\\LawyerApp.CommonHelper.csproj",
         "packagesPath": "C:\\Users\\CentricTech\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp.CommonHelper\\obj\\",
         "projectStyle": "PackageReference",

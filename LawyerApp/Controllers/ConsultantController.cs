@@ -14,7 +14,7 @@ namespace LawyerApp.Controllers
         {
             _consultantService = consultantService;
         }
-        [HttpPost]
+        [HttpPost("AddNew")]
         public async Task<IActionResult> Create(Consultant consultant)
         {
             var isConsultanCreated = await _consultantService.Create(consultant);
@@ -26,6 +26,37 @@ namespace LawyerApp.Controllers
             else
             {
                 return BadRequest("Error");
+            }
+        }
+        [HttpGet("GetbyId")]
+        public async Task<IActionResult> GetById(string consultationId)
+        {
+            var result = await _consultantService.GetConsultantById(consultationId);
+
+            if (result != null)
+            {
+                return Ok(new {message = "Data Loaded Successfully"});
+            }
+            else
+            {
+                return BadRequest("Error");
+            }
+        }
+        [HttpPut("Update")]
+        public async Task<IActionResult> UpdateConsultant(Consultant consultant)
+        {
+            if (consultant != null)
+            {
+                var result = await _consultantService.UpdateConsultation(consultant);
+                if (result)
+                {
+                    return Ok(new { message = "Updated Successfully" });
+                }
+                return BadRequest("Error");
+            }
+            else
+            {
+                return BadRequest("Data Not Found");
             }
         }
     }

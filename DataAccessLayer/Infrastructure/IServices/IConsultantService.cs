@@ -13,9 +13,9 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.IServices
 
         ////Task<IEnumerable<Consultant>> GetAll();
 
-        ////Task<Consultant> GetConsultantById();
+        Task<Consultant> GetConsultantById(string consultationId);
 
-        ////Task<bool> UpdateProduct(Consultant consultant);
+        Task<bool> UpdateConsultation(Consultant consultant);
 
         ////Task<bool> DeleteProduct();
     }

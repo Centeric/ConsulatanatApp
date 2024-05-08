@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\DataAccessLayer\\LawyerApp.DataAccessLayer.csproj": {}
+    "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\DataAccessLayer\\LawyerApp.DataAccessLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\DataAccessLayer\\LawyerApp.DataAccessLayer.csproj": {
+    "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\DataAccessLayer\\LawyerApp.DataAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\DataAccessLayer\\LawyerApp.DataAccessLayer.csproj",
+        "projectUniqueName": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\DataAccessLayer\\LawyerApp.DataAccessLayer.csproj",
         "projectName": "LawyerApp.DataAccessLayer",
-        "projectPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\DataAccessLayer\\LawyerApp.DataAccessLayer.csproj",
+        "projectPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\DataAccessLayer\\LawyerApp.DataAccessLayer.csproj",
         "packagesPath": "C:\\Users\\CentricTech\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\DataAccessLayer\\obj\\",
+        "outputPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\DataAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -32,8 +32,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\LawyerApp.Models\\LawyerApp.Models.csproj": {
-                "projectPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\LawyerApp.Models\\LawyerApp.Models.csproj"
+              "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp.Models\\LawyerApp.Models.csproj": {
+                "projectPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp.Models\\LawyerApp.Models.csproj"
               }
             }
           }
@@ -79,12 +79,12 @@
         }
       }
     },
-    "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\LawyerApp.Models\\LawyerApp.Models.csproj": {
+    "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp.Models\\LawyerApp.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\LawyerApp.Models\\LawyerApp.Models.csproj",
+        "projectUniqueName": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp.Models\\LawyerApp.Models.csproj",
         "projectName": "LawyerApp.Models",
-        "projectPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\LawyerApp.Models\\LawyerApp.Models.csproj",
+        "projectPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp.Models\\LawyerApp.Models.csproj",
         "packagesPath": "C:\\Users\\CentricTech\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp.Models\\obj\\",
         "projectStyle": "PackageReference",

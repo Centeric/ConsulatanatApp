@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\LawyerApp.Models\\LawyerApp.Models.csproj": {}
+    "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp.Models\\LawyerApp.Models.csproj": {}
   },
   "projects": {
-    "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\LawyerApp.Models\\LawyerApp.Models.csproj": {
+    "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp.Models\\LawyerApp.Models.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\LawyerApp.Models\\LawyerApp.Models.csproj",
+        "projectUniqueName": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp.Models\\LawyerApp.Models.csproj",
         "projectName": "LawyerApp.Models",
-        "projectPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\LawyerApp.Models\\LawyerApp.Models.csproj",
+        "projectPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp.Models\\LawyerApp.Models.csproj",
         "packagesPath": "C:\\Users\\CentricTech\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp.Models\\obj\\",
         "projectStyle": "PackageReference",
