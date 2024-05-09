@@ -13,5 +13,7 @@ namespace DataAccessLayer
         }
 
        public DbSet<Consultant> Consultants { get; set; }
+        
+        public DbSet<User> Users { get; set; }
     }
 }

@@ -141,3 +141,7 @@ C:\Users\CentricTech\Source\Repos\ConsulatanatApp\LawyerApp\obj\Debug\net6.0\ref
 C:\Users\CentricTech\Source\Repos\ConsulatanatApp\LawyerApp\obj\Debug\net6.0\LawyerApp.pdb
 C:\Users\CentricTech\Source\Repos\ConsulatanatApp\LawyerApp\obj\Debug\net6.0\LawyerApp.genruntimeconfig.cache
 C:\Users\CentricTech\Source\Repos\ConsulatanatApp\LawyerApp\obj\Debug\net6.0\ref\LawyerApp.dll
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\LawyerApp\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\LawyerApp\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\LawyerApp\bin\Debug\net6.0\LawyerApp.CommonHelper.dll
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\LawyerApp\bin\Debug\net6.0\LawyerApp.CommonHelper.pdb

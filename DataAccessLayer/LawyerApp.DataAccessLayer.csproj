@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\LawyerApp.CommonHelper\LawyerApp.CommonHelper.csproj" />
     <ProjectReference Include="..\LawyerApp.Models\LawyerApp.Models.csproj" />
   </ItemGroup>
 

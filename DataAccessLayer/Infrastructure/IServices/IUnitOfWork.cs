@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LawyerApp.Models.Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,9 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.IServices
     public interface IUnitOfWork:IDisposable
     {
         IConsultantRepository Consultants { get; }
+        IAuthRepository Users { get; }
+
+     
         int Save();
     }
 }

@@ -20,3 +20,4 @@ C:\Users\CentricTech\Source\Repos\ConsulatanatApp\LawyerApp.CommonHelper\obj\Deb
 C:\Users\CentricTech\Source\Repos\ConsulatanatApp\LawyerApp.CommonHelper\obj\Debug\net6.0\refint\LawyerApp.CommonHelper.dll
 C:\Users\CentricTech\Source\Repos\ConsulatanatApp\LawyerApp.CommonHelper\obj\Debug\net6.0\LawyerApp.CommonHelper.pdb
 C:\Users\CentricTech\Source\Repos\ConsulatanatApp\LawyerApp.CommonHelper\obj\Debug\net6.0\ref\LawyerApp.CommonHelper.dll
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\LawyerApp.CommonHelper\obj\Debug\net6.0\LawyerApp.CommonHelper.csproj.AssemblyReference.cache

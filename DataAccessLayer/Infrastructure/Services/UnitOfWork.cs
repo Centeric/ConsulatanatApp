@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer;
 using LawyerApp.DataAccessLayer.Infrastructure.IServices;
+using LawyerApp.Models.Model;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,13 +14,14 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.Services
     {
         private readonly ApplicationDbContext _context;
         public IConsultantRepository Consultants { get; }
-
+        public IAuthRepository Users { get; }
        
 
-        public UnitOfWork(ApplicationDbContext context, IConsultantRepository consultant)
+        public UnitOfWork(ApplicationDbContext context, IConsultantRepository consultant, IAuthRepository auth)
         {
             _context = context;
-            Consultants = consultant;                            
+            Consultants = consultant; 
+            Users = auth;
         }
         public int Save()
         {
@@ -39,5 +41,6 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.Services
             }
         }
 
+     
     }
 }

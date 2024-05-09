@@ -16,5 +16,6 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.IServices
         void Delete(T entity);
         void Update(T entity);
         Task<Consultant> GetByConsultationId(string consultationId);
+        Task<User> GetByEmail(string email);
     }
 }

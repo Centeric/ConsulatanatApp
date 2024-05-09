@@ -50,5 +50,9 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.Services
         {
             return await _dbContext.Set<Consultant>().FirstOrDefaultAsync(c => c.ConsultationId == consultationId);
         }
+        public async Task<User> GetByEmail(string email)
+        {
+            return await _dbContext.Set<User>().FirstOrDefaultAsync(x => x.Email == email);
+        }
     }
 }
