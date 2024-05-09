@@ -1,4 +1,5 @@
 ﻿using LawyerApp.Models.Model;
+using LawyerApp.Models.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,6 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.IServices
     public interface IAuthService
     {
         Task<bool> Add(User user);
-        Task<bool> Login(string email, string password);
+        Task<LoginView> Login(string email, string password);
     }
 }

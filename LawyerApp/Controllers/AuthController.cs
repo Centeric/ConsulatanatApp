@@ -34,7 +34,7 @@ namespace LawyerApp.Controllers
         public async Task<IActionResult> Login(LoginView loginView)
         {
            var response = await _authService.Login(loginView.Email, loginView.Password);
-            if (response)
+            if (response != null)
             {
                 return Ok(new {message ="Login Successfully",response});
             }

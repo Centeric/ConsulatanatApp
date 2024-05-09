@@ -38,11 +38,11 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.Services
             }
             return false;
         }
-        public async Task<bool> Login(string email, string password)
+        public async Task<LoginView> Login(string email, string password)
         {
             var user = await _unitOfWork.Users.GetByEmail(email);
             if (user is null) 
-                return false;
+                return null;
                     
       
             string jwtToken = _jwtService.GenerateToken(user.Email ?? "");
@@ -55,7 +55,7 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.Services
                 Token = jwtToken
             };
 
-            return true;
+              return response;
          }
     }
 }
