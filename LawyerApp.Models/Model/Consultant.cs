@@ -22,5 +22,6 @@ namespace LawyerApp.Models.Model
         public DateTime HearingDate { get; set; }
         public DateTime DeadlineForDocumentSubmission { get; set; }
         public DateTime DateOfTransfer { get; set; }
+        public string? CaseSummary { get; set; }   
     }
 }

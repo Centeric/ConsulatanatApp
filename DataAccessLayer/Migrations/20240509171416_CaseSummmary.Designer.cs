@@ -4,6 +4,7 @@ using DataAccessLayer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LawyerApp.DataAccessLayer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240509171416_CaseSummmary")]
+    partial class CaseSummmary
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,19 +23,6 @@ namespace LawyerApp.DataAccessLayer.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("LawyerApp.Models.Model.CommunicationUpdates", b =>
-                {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<string>("CommunicationUpdate")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("CommunicationUpdates");
-                });
 
             modelBuilder.Entity("LawyerApp.Models.Model.Consultant", b =>
                 {
@@ -87,19 +76,6 @@ namespace LawyerApp.DataAccessLayer.Migrations
                     b.ToTable("Consultants");
                 });
 
-            modelBuilder.Entity("LawyerApp.Models.Model.NextSteps", b =>
-                {
-                    b.Property<int>("Id")
-                        .HasColumnType("int");
-
-                    b.Property<string>("NextStep")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("NextSteps");
-                });
-
             modelBuilder.Entity("LawyerApp.Models.Model.User", b =>
                 {
                     b.Property<int>("Id")
@@ -123,28 +99,6 @@ namespace LawyerApp.DataAccessLayer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
-                });
-
-            modelBuilder.Entity("LawyerApp.Models.Model.CommunicationUpdates", b =>
-                {
-                    b.HasOne("LawyerApp.Models.Model.Consultant", "Consultant")
-                        .WithMany()
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Consultant");
-                });
-
-            modelBuilder.Entity("LawyerApp.Models.Model.NextSteps", b =>
-                {
-                    b.HasOne("LawyerApp.Models.Model.Consultant", "Consultant")
-                        .WithMany()
-                        .HasForeignKey("Id")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Consultant");
                 });
 #pragma warning restore 612, 618
         }
