@@ -19,7 +19,9 @@ C:\Users\CentricTech\Source\Repos\ConsulatanatApp\DataAccessLayer\bin\Debug\net6
 C:\Users\CentricTech\Source\Repos\ConsulatanatApp\DataAccessLayer\bin\Debug\net6.0\LawyerApp.DataAccessLayer.runtimeconfig.json
 C:\Users\CentricTech\Source\Repos\ConsulatanatApp\DataAccessLayer\bin\Debug\net6.0\LawyerApp.DataAccessLayer.dll
 C:\Users\CentricTech\Source\Repos\ConsulatanatApp\DataAccessLayer\bin\Debug\net6.0\LawyerApp.DataAccessLayer.pdb
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\DataAccessLayer\bin\Debug\net6.0\LawyerApp.CommonHelper.dll
 C:\Users\CentricTech\Source\Repos\ConsulatanatApp\DataAccessLayer\bin\Debug\net6.0\LawyerApp.Models.dll
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\DataAccessLayer\bin\Debug\net6.0\LawyerApp.CommonHelper.pdb
 C:\Users\CentricTech\Source\Repos\ConsulatanatApp\DataAccessLayer\bin\Debug\net6.0\LawyerApp.Models.pdb
 C:\Users\CentricTech\Source\Repos\ConsulatanatApp\DataAccessLayer\obj\Debug\net6.0\LawyerApp.DataAccessLayer.csproj.AssemblyReference.cache
 C:\Users\CentricTech\Source\Repos\ConsulatanatApp\DataAccessLayer\obj\Debug\net6.0\LawyerApp.DataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
@@ -32,5 +34,3 @@ C:\Users\CentricTech\Source\Repos\ConsulatanatApp\DataAccessLayer\obj\Debug\net6
 C:\Users\CentricTech\Source\Repos\ConsulatanatApp\DataAccessLayer\obj\Debug\net6.0\LawyerApp.DataAccessLayer.pdb
 C:\Users\CentricTech\Source\Repos\ConsulatanatApp\DataAccessLayer\obj\Debug\net6.0\LawyerApp.DataAccessLayer.genruntimeconfig.cache
 C:\Users\CentricTech\Source\Repos\ConsulatanatApp\DataAccessLayer\obj\Debug\net6.0\ref\LawyerApp.DataAccessLayer.dll
-C:\Users\CentricTech\Source\Repos\ConsulatanatApp\DataAccessLayer\bin\Debug\net6.0\LawyerApp.CommonHelper.dll
-C:\Users\CentricTech\Source\Repos\ConsulatanatApp\DataAccessLayer\bin\Debug\net6.0\LawyerApp.CommonHelper.pdb
