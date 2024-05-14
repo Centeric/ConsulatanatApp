@@ -9,6 +9,6 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.IServices
 {
     public interface IConsultantRepository : IRepository<Consultant>
     {
-
+        Task<Consultant> GetByConsultationId(string consultationId);
     }
 }

@@ -24,13 +24,21 @@ namespace LawyerApp.DataAccessLayer.Migrations
 
             modelBuilder.Entity("LawyerApp.Models.Model.CommunicationUpdates", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("CommunicationId")
+                        .ValueGeneratedOnAdd()
                         .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommunicationId"), 1L, 1);
 
                     b.Property<string>("CommunicationUpdate")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<int>("ConsultantId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CommunicationId");
+
+                    b.HasIndex("ConsultantId");
 
                     b.ToTable("CommunicationUpdates");
                 });
@@ -55,9 +63,6 @@ namespace LawyerApp.DataAccessLayer.Migrations
                     b.Property<string>("ConsultationId")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ConsultationName")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("ConsultationStatus")
                         .HasColumnType("nvarchar(max)");
 
@@ -79,8 +84,11 @@ namespace LawyerApp.DataAccessLayer.Migrations
                     b.Property<bool>("PaymentReceived")
                         .HasColumnType("bit");
 
-                    b.Property<double>("TimeShare")
-                        .HasColumnType("float");
+                    b.Property<string>("TimeShare")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TimeShareName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
@@ -89,13 +97,21 @@ namespace LawyerApp.DataAccessLayer.Migrations
 
             modelBuilder.Entity("LawyerApp.Models.Model.NextSteps", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("NextStepId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("NextStepId"), 1L, 1);
+
+                    b.Property<int>("ConsultantId")
                         .HasColumnType("int");
 
                     b.Property<string>("NextStep")
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("NextStepId");
+
+                    b.HasIndex("ConsultantId");
 
                     b.ToTable("NextSteps");
                 });
@@ -129,7 +145,7 @@ namespace LawyerApp.DataAccessLayer.Migrations
                 {
                     b.HasOne("LawyerApp.Models.Model.Consultant", "Consultant")
                         .WithMany()
-                        .HasForeignKey("Id")
+                        .HasForeignKey("ConsultantId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -140,7 +156,7 @@ namespace LawyerApp.DataAccessLayer.Migrations
                 {
                     b.HasOne("LawyerApp.Models.Model.Consultant", "Consultant")
                         .WithMany()
-                        .HasForeignKey("Id")
+                        .HasForeignKey("ConsultantId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 

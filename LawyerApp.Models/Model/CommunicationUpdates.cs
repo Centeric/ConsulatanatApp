@@ -9,9 +9,10 @@ namespace LawyerApp.Models.Model
 {
     public class CommunicationUpdates
     {
-        public int Id { get; set; }
-        public string? CommunicationUpdate {  get; set; }
-        [ForeignKey(nameof(Id))]
+        public int CommunicationId { get; set; }
+        public string? CommunicationUpdate { get; set; }
+        public int ConsultantId { get; set; } 
+        [ForeignKey("ConsultantId")]
         public Consultant? Consultant { get; set; }
     }
 }

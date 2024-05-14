@@ -19,6 +19,8 @@ builder.Services.AddScoped<IJwtParams, JwtParam>();
 builder.Services.AddScoped<IJwtService, JwtService>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IConsultantRepository, ConsultantRepository>();
+builder.Services.AddScoped<ICommunicationUpdateRepository, CommunicationUpdateRepository>();
+builder.Services.AddScoped<INextStepsRepository, NextStepsRepository>();
 builder.Services.AddScoped<IConsultantService, ConsultantService>();
 builder.Services.AddScoped<IAuthRepository, AuthRepository>();
 builder.Services.AddScoped<IAuthService, AuthService>();

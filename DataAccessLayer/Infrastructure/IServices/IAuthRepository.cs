@@ -1,4 +1,5 @@
-﻿using LawyerApp.Models.Model;
+﻿using LawyerApp.CommonHelper.CustomGeneric;
+using LawyerApp.Models.Model;
 using LawyerApp.Models.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,6 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.IServices
 {
     public interface IAuthRepository : IRepository<User>
     {
-
+        Task<User> GetByEmail(string email);
     }
 }
