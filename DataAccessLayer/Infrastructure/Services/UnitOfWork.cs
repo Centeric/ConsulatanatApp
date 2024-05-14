@@ -14,14 +14,18 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.Services
     {
         private readonly ApplicationDbContext _context;
         public IConsultantRepository Consultants { get; }
+        public INextStepsRepository NextSteps { get; }
         public IAuthRepository Users { get; }
+        public ICommunicationUpdateRepository CommunicationUpdates { get; }
        
 
-        public UnitOfWork(ApplicationDbContext context, IConsultantRepository consultant, IAuthRepository auth)
+        public UnitOfWork(ApplicationDbContext context, IConsultantRepository consultant, IAuthRepository auth, INextStepsRepository nextSteps, ICommunicationUpdateRepository communicationUpdate)
         {
             _context = context;
             Consultants = consultant; 
             Users = auth;
+            NextSteps = nextSteps;
+            CommunicationUpdates = communicationUpdate;
         }
         public int Save()
         {

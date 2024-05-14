@@ -11,6 +11,8 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.IServices
     {
         IConsultantRepository Consultants { get; }
         IAuthRepository Users { get; }
+        INextStepsRepository NextSteps { get; }
+        ICommunicationUpdateRepository CommunicationUpdates { get; }
 
      
         int Save();

@@ -519,6 +519,7 @@
       },
       "LawyerApp.CommonHelper/1.0.0": {
         "dependencies": {
+          "LawyerApp.Models": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.26",
           "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0"
         },

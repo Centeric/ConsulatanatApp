@@ -1,4 +1,5 @@
 ﻿using LawyerApp.Models.Model;
+using LawyerApp.Models.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,13 +11,16 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.IServices
     public interface IConsultantService
     {
         Task<bool> Create(Consultant consultant);
+       Task<bool> CreateNextSteps(NextStepView next);
+        Task<bool> CreateCommunicationUpdate(CommunicationUpdateView inp);
 
         ////Task<IEnumerable<Consultant>> GetAll();
 
-        Task<Consultant> GetConsultantById(string consultationId);
+        Task<ConsultantView> GetConsultantById(string consultationId);
 
         Task<bool> UpdateConsultation(Consultant consultant);
 
         Task<bool> DeleteById(int id);
+        Task<IEnumerable<ConsultantView>> GetAllConsultant();
     }
 }

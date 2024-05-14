@@ -109,7 +109,11 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp.Models\\LawyerApp.Models.csproj": {
+                "projectPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\LawyerApp.Models\\LawyerApp.Models.csproj"
+              }
+            }
           }
         },
         "warningProperties": {

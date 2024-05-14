@@ -9,9 +9,10 @@ namespace LawyerApp.Models.Model
 {
     public class NextSteps
     {
-        public int Id { get; set; }
+        public int NextStepId { get; set; }
         public string? NextStep { get; set; }
-        [ForeignKey(nameof(Id))] 
-        public Consultant? Consultant  { get; set; }
+        public int ConsultantId { get; set; } 
+        [ForeignKey("ConsultantId")]
+        public Consultant? Consultant { get; set; }
     }
 }

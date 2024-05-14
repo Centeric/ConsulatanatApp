@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace LawyerApp.DataAccessLayer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240509122731_Initialuser")]
-    partial class Initialuser
+    [Migration("20240513182456_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,27 @@ namespace LawyerApp.DataAccessLayer.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("LawyerApp.Models.Model.CommunicationUpdates", b =>
+                {
+                    b.Property<int>("CommunicationId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CommunicationId"), 1L, 1);
+
+                    b.Property<string>("CommunicationUpdate")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("ConsultantId")
+                        .HasColumnType("int");
+
+                    b.HasKey("CommunicationId");
+
+                    b.HasIndex("ConsultantId");
+
+                    b.ToTable("CommunicationUpdates");
+                });
 
             modelBuilder.Entity("LawyerApp.Models.Model.Consultant", b =>
                 {
@@ -35,13 +56,13 @@ namespace LawyerApp.DataAccessLayer.Migrations
                     b.Property<string>("AssistantConsultant")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("CaseSummary")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("ClientName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConsultationId")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ConsultationName")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ConsultationStatus")
@@ -65,12 +86,36 @@ namespace LawyerApp.DataAccessLayer.Migrations
                     b.Property<bool>("PaymentReceived")
                         .HasColumnType("bit");
 
-                    b.Property<double>("TimeShare")
-                        .HasColumnType("float");
+                    b.Property<string>("TimeShare")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TimeShareName")
+                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Consultants");
+                });
+
+            modelBuilder.Entity("LawyerApp.Models.Model.NextSteps", b =>
+                {
+                    b.Property<int>("NextStepId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("NextStepId"), 1L, 1);
+
+                    b.Property<int>("ConsultantId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("NextStep")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("NextStepId");
+
+                    b.HasIndex("ConsultantId");
+
+                    b.ToTable("NextSteps");
                 });
 
             modelBuilder.Entity("LawyerApp.Models.Model.User", b =>
@@ -96,6 +141,28 @@ namespace LawyerApp.DataAccessLayer.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("LawyerApp.Models.Model.CommunicationUpdates", b =>
+                {
+                    b.HasOne("LawyerApp.Models.Model.Consultant", "Consultant")
+                        .WithMany()
+                        .HasForeignKey("ConsultantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Consultant");
+                });
+
+            modelBuilder.Entity("LawyerApp.Models.Model.NextSteps", b =>
+                {
+                    b.HasOne("LawyerApp.Models.Model.Consultant", "Consultant")
+                        .WithMany()
+                        .HasForeignKey("ConsultantId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Consultant");
                 });
 #pragma warning restore 612, 618
         }

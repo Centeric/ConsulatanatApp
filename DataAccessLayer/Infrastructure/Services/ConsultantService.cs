@@ -1,8 +1,11 @@
 ﻿using LawyerApp.DataAccessLayer.Infrastructure.IServices;
 using LawyerApp.Models.Model;
+using LawyerApp.Models.ViewModel;
+using Microsoft.VisualBasic;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -30,6 +33,44 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.Services
             }
             return false;
         }
+        public async Task<bool> CreateNextSteps(NextStepView next)
+        {
+            if (next != null)
+            {
+
+                var nextStepsEntity = new NextSteps
+                {
+                    NextStep = next.NextStep,
+                    ConsultantId = next.ConsultantId
+                };
+
+                await _unitOfWork.NextSteps.Add(nextStepsEntity);
+                var result = _unitOfWork.Save();
+
+                return result > 0;
+            }
+            return false;
+
+        }
+        public async Task<bool> CreateCommunicationUpdate(CommunicationUpdateView inp)
+        {
+            if (inp != null)
+            {
+
+                var communicationEntity = new CommunicationUpdates
+                {
+                    CommunicationUpdate = inp.CommunicationUpdate,
+                    ConsultantId = inp.ConsultantId
+                };
+
+                await _unitOfWork.CommunicationUpdates.Add(communicationEntity);
+                var result = _unitOfWork.Save();
+
+                return result > 0;
+            }
+            return false;
+
+        }
 
         public async Task<bool> DeleteById(int id)
         {
@@ -50,22 +91,46 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.Services
             return false;
         }
 
-        public Task<IEnumerable<Consultant>> GetAll()
+        public async Task<IEnumerable<ConsultantView>> GetAllConsultant()
         {
-            throw new NotImplementedException();
+            var consultantList = await _unitOfWork.Consultants.GetAll();
+          
+
+            return null;
+           
         }
 
-        public async Task<Consultant> GetConsultantById(string consultationId)
+        public async Task<ConsultantView> GetConsultantById(string consultationId)
         {
 
             if (!string.IsNullOrEmpty(consultationId))
             {
                 var result = await _unitOfWork.Consultants.
                     GetByConsultationId(consultationId);
-                if (result != null)
+                if (result == null)
                 {
-                    return result;
+                    return null;
                 }
+                var viewModel = new ConsultantView
+                {
+                    Id = result.Id,
+                    ConsultationId = result.ConsultationId,
+                    TimeShareName= result.TimeShareName,
+                    ClientName = result.ClientName,
+                    ConsultationStatus = result.ConsultationStatus,
+                    TimeShare = result.TimeShare,
+                    PaymentReceived = result.PaymentReceived,
+                    LeadConsultant = result.LeadConsultant,
+                    AssistantConsultant = result.AssistantConsultant,
+                    FilingDate = result.FilingDate,
+                    HearingDate = result.HearingDate,
+                    DeadlineForDocumentSubmission = result.DeadlineForDocumentSubmission,
+                    DateOfTransfer = result.DateOfTransfer,
+                    CaseSummary= result.CaseSummary,
+                    NextSteps = result.NextSteps.Select(n => n.NextStep).ToList(),
+                    CommunicationUpdates = result.CommunicationUpdates.Select(c => c.CommunicationUpdate).ToList()
+                };
+                return viewModel;
             }
             return null;
         }
@@ -78,7 +143,7 @@ namespace LawyerApp.DataAccessLayer.Infrastructure.Services
                 if (result != null)
                 {
                    // result.ConsultationId = consultant.ConsultationId;
-                    result.ConsultationName = consultant.ConsultationName;
+                    result.TimeShareName = consultant.TimeShareName;
                     result.ClientName = consultant.ClientName;
                     result.ConsultationStatus = consultant.ConsultationStatus;
                     result.TimeShare = consultant.TimeShare;
