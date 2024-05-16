@@ -1,6 +1,7 @@
 ﻿using CaseTracker.DataAccessLayer.DataContext;
 using CaseTracker.DataAccessLayer.IDataServices;
 using CaseTracker.DataAccessLayer.Models;
+using CaseTracker.DataAccessLayer.Responses;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,8 @@ namespace CaseTracker.DataAccessLayer.DataServices
         public async Task<int> Add(Consultant consultant)
         {
             _ = await _dbContext.Consultants.AddAsync(consultant);
-            return await _dbContext.SaveChangesAsync();
+           return  await _dbContext.SaveChangesAsync();
+            
         }
         public async Task<Consultant?> GetById(int id)
         {

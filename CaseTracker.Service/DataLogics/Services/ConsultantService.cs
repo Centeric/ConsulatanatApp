@@ -35,9 +35,10 @@ namespace CaseTracker.Service.DataLogics.Services
         public async Task<Result> Add(CreateConsultantRequest consultant)
         {
             int response = await _consultantRepo.Add(consultant.ToEntity());
+            
             return response != 0
-                ? Result.Success(Constants.Added)
-                : Result.Failure(Constants.NotAdded);
+                ? Result.Success(Constants.Added, consultant)
+                : Result.Failure(Constants.NotAdded)!;
         }
         public async Task<Result> UpdateConsultant(UpdateConsultantRequest request)
         {

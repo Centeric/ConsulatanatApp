@@ -31,16 +31,30 @@ builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
+
+app.UseSwagger();
+app.UseSwaggerUI();
+
+
+
+app.UseRouting();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+app.UseEndpoints(endpoints =>
 {
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-app.UseStaticFiles();
+    endpoints.MapControllers();
+});
+
+
+
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
+
+
+

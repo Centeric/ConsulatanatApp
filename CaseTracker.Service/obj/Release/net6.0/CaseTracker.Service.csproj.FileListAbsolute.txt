@@ -1,0 +1,15 @@
+C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker.Service\bin\Release\net6.0\CaseTracker.Service.deps.json
+C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker.Service\bin\Release\net6.0\CaseTracker.Service.dll
+C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker.Service\bin\Release\net6.0\CaseTracker.Service.pdb
+C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker.Service\bin\Release\net6.0\CaseTracker.DataAccessLayer.dll
+C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker.Service\bin\Release\net6.0\CaseTracker.DataAccessLayer.pdb
+C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker.Service\obj\Release\net6.0\CaseTracker.Service.csproj.AssemblyReference.cache
+C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker.Service\obj\Release\net6.0\CaseTracker.Service.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker.Service\obj\Release\net6.0\CaseTracker.Service.AssemblyInfoInputs.cache
+C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker.Service\obj\Release\net6.0\CaseTracker.Service.AssemblyInfo.cs
+C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker.Service\obj\Release\net6.0\CaseTracker.Service.csproj.CoreCompileInputs.cache
+C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker.Service\obj\Release\net6.0\CaseTracker.Service.csproj.CopyComplete
+C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker.Service\obj\Release\net6.0\CaseTracker.Service.dll
+C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker.Service\obj\Release\net6.0\refint\CaseTracker.Service.dll
+C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker.Service\obj\Release\net6.0\CaseTracker.Service.pdb
+C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker.Service\obj\Release\net6.0\ref\CaseTracker.Service.dll
