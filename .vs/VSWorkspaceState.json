@@ -1,13 +1,6 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\DataAccessLayer",
-    "\\DataAccessLayer\\Infrastructure",
-    "\\DataAccessLayer\\Infrastructure\\Services",
-    "\\LawyerApp",
-    "\\LawyerApp.Models",
-    "\\LawyerApp\\Controllers"
+    ""
   ],
-  "SelectedNode": "\\LawyerApp.sln",
   "PreviewInSolutionExplorer": false
 }
