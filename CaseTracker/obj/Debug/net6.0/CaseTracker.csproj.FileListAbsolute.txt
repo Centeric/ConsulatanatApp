@@ -146,6 +146,7 @@ C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\obj\Debug\net6.0\s
 C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\obj\Debug\net6.0\CaseTracker.csproj.CopyComplete
 C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\obj\Debug\net6.0\CaseTracker.genruntimeconfig.cache
 C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\obj\Debug\net6.0\ref\CaseTracker.dll
+<<<<<<< HEAD
 C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\appsettings.json
 C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\CaseTracker.exe
@@ -220,3 +221,15 @@ C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker\obj\Debug\net6.0\refint\
 C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker\obj\Debug\net6.0\CaseTracker.pdb
 C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker\obj\Debug\net6.0\CaseTracker.genruntimeconfig.cache
 C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker\obj\Debug\net6.0\ref\CaseTracker.dll
+=======
+C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll
+C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\Serilog.dll
+C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\Serilog.AspNetCore.dll
+C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\Serilog.Extensions.Hosting.dll
+C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\Serilog.Extensions.Logging.dll
+C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\Serilog.Formatting.Compact.dll
+C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\Serilog.Settings.Configuration.dll
+C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\Serilog.Sinks.Console.dll
+C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\Serilog.Sinks.Debug.dll
+C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\Serilog.Sinks.File.dll
+>>>>>>> effb87e373de40eee8b39bc45195bf0095ff97de

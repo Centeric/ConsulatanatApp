@@ -2,9 +2,11 @@ using CaseTracker.DataAccessLayer.DataContext;
 using CaseTracker.DataAccessLayer.DataServices;
 using CaseTracker.DataAccessLayer.IDataServices;
 using CaseTracker.DataAccessLayer.Models;
+using CaseTracker.MiddlewareErrorHandling;
 using CaseTracker.Service.DataLogics.IServices;
 using CaseTracker.Service.DataLogics.Services;
 using Microsoft.EntityFrameworkCore;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +17,8 @@ builder.Services
     .AddDbContext<ApplicationDbContext>(options =>
         options.UseSqlServer(builder.Configuration
             .GetConnectionString("CaseTracker")));
+builder.Host.UseSerilog((context, configuration) =>
+    configuration.ReadFrom.Configuration(context.Configuration));
 #region
 builder.Services.AddSingleton<IFileStorageService, FileStorageService>();
 builder.Services.AddScoped<IConsultantRepo, ConsultantRepo>();
@@ -49,6 +53,7 @@ app.UseEndpoints(endpoints =>
 
 
 
+app.UseCustomErrorHandling();
 app.UseHttpsRedirection();
 
 
