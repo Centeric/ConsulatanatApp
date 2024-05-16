@@ -361,3 +361,31 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+
+# .NET Core
+*.dll
+*.exe
+*.pdb
+*.user
+*.vscode
+*.vs
+bin/
+obj/
+
+# Visual Studio Code
+.vscode/
+
+
+# NuGet Packages
+*.nupkg
+*.snupkg
+
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
