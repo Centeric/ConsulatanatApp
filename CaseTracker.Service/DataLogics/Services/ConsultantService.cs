@@ -80,7 +80,7 @@ namespace CaseTracker.Service.DataLogics.Services
                 NextSteps = consultant.NextSteps.Select(step => step.NextStep).ToList()!,
                 CommunicationUpdates = consultant.CommunicationUpdates.Select(x => x.CommunicationUpdate).ToList()!,
                 AttachmentName = consultant.AttachmentModels.Select(x => x.AttachmentName).ToList()!
-                //
+                
             };
             return Result.Success(Constants.DataLoaded, response);
         }
