@@ -18,5 +18,6 @@ namespace CaseTracker.Service.DataLogics.IServices
         Task<Result> CreateCommunicationUpdate(CreateCommunicationRequest request);
         Task<Result> GetConsultant();
         Task<Result> AddAttachment(CreateAttachmentRequest request);
+       // Task<Result> AddAttachment(CreateAttachmentRequest request);
     }
 }
