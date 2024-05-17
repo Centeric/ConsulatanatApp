@@ -43,7 +43,7 @@ namespace CaseTracker.DataAccessLayer.Migrations
 
                     b.HasIndex("ConsultantId");
 
-                    b.ToTable("AttachmentModels");
+                    b.ToTable("AttachmentModels", (string)null);
                 });
 
             modelBuilder.Entity("CaseTracker.DataAccessLayer.Models.CommunicationUpdates", b =>
@@ -70,7 +70,7 @@ namespace CaseTracker.DataAccessLayer.Migrations
 
                     b.HasIndex("ConsultantId");
 
-                    b.ToTable("CommunicationUpdates");
+                    b.ToTable("CommunicationUpdates", (string)null);
                 });
 
             modelBuilder.Entity("CaseTracker.DataAccessLayer.Models.Consultant", b =>
@@ -108,6 +108,9 @@ namespace CaseTracker.DataAccessLayer.Migrations
                     b.Property<DateTime>("HearingDate")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("IsActive")
+                        .HasColumnType("int");
+
                     b.Property<string>("LeadConsultant")
                         .HasColumnType("nvarchar(max)");
 
@@ -122,7 +125,7 @@ namespace CaseTracker.DataAccessLayer.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Consultants");
+                    b.ToTable("Consultants", (string)null);
                 });
 
             modelBuilder.Entity("CaseTracker.DataAccessLayer.Models.NextSteps", b =>
@@ -149,7 +152,7 @@ namespace CaseTracker.DataAccessLayer.Migrations
 
                     b.HasIndex("ConsultantId");
 
-                    b.ToTable("NextSteps");
+                    b.ToTable("NextSteps", (string)null);
                 });
 
             modelBuilder.Entity("CaseTracker.DataAccessLayer.Models.AttachmentModel", b =>
