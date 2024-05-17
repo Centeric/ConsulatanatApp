@@ -15,7 +15,7 @@ namespace CaseTracker.Service.Request
         public string? ClientName { get; set; }
         public int ConsultationStatus { get; set; }
         public string? TimeShareLocation { get; set; }
-        public double PaymentReceived { get; set; }
+        public bool PaymentReceived { get; set; }
         public string? LeadConsultant { get; set; }
         public string? AssistantConsultant { get; set; }
         public DateTime FilingDate { get; set; }
@@ -29,17 +29,17 @@ namespace CaseTracker.Service.Request
 
 
             consultant.TimeShareName = TimeShareName;
-            ClientName = ClientName;
-            ConsultationStatus = ConsultationStatus;
-            TimeShareLocation = TimeShareLocation;
-            PaymentReceived = PaymentReceived;
-            LeadConsultant = LeadConsultant;
-            AssistantConsultant = AssistantConsultant;
-            FilingDate = FilingDate;
-            HearingDate = HearingDate;
-            DeadlineForDocumentSubmission = DeadlineForDocumentSubmission;
-            DateOfTransfer = DateOfTransfer;
-                CaseSummary = CaseSummary
+            consultant.ClientName = ClientName;
+            consultant.ConsultationStatus = ConsultationStatus;
+            consultant.TimeShareLocation = TimeShareLocation;
+            consultant.PaymentReceived = PaymentReceived;
+            consultant.LeadConsultant = LeadConsultant;
+            consultant.AssistantConsultant = AssistantConsultant;
+            consultant.FilingDate = FilingDate;
+            consultant.HearingDate = HearingDate;
+            consultant.DeadlineForDocumentSubmission = DeadlineForDocumentSubmission;
+            consultant.DateOfTransfer = DateOfTransfer;
+                consultant.CaseSummary = CaseSummary
 ;
             return consultant;
         }

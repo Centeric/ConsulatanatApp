@@ -23,7 +23,7 @@ builder.Host.UseSerilog((context, configuration) =>
 builder.Services.AddSingleton<IFileStorageService, FileStorageService>();
 builder.Services.AddScoped<IConsultantRepo, ConsultantRepo>();
 builder.Services.AddScoped<IConsultantService, ConsultantService>();
-builder.Services.AddScoped<IRepository<Consultant>, Repository<Consultant>>();
+builder.Services.AddScoped<IRepoConsultant, RepoConsultant>();
 builder.Services.AddScoped<INextStepRepo, NextStepRepo>();
 builder.Services.AddScoped<ICommunicationUpdateRepo, CommunicationUpdateRepo>();
 builder.Services.AddScoped<IAttachmentRepo, AttachmentRepo>();

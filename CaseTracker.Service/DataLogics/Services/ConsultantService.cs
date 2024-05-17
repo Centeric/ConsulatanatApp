@@ -17,20 +17,22 @@ namespace CaseTracker.Service.DataLogics.Services
     public class ConsultantService : IConsultantService
     {
         private readonly IConsultantRepo _consultantRepo;
-        private readonly IRepository<Consultant> _repository;
+       
         private readonly INextStepRepo _nextStepsRepository;
         private readonly ICommunicationUpdateRepo _communicationUpdateRepo;
         private readonly IAttachmentRepo _attachmentRepo;
         private readonly IFileStorageService _fileStorageService;
-        public ConsultantService(IConsultantRepo consultantRepo, IRepository<Consultant> repository, INextStepRepo nextStepsRepository, ICommunicationUpdateRepo communicationUpdateRepo, 
-            IAttachmentRepo attachmentRepo, IFileStorageService fileStorageService)
+        private readonly IRepoConsultant _repoConsultant;
+        public ConsultantService(IConsultantRepo consultantRepo,  INextStepRepo nextStepsRepository, ICommunicationUpdateRepo communicationUpdateRepo,
+            IAttachmentRepo attachmentRepo, IFileStorageService fileStorageService, IRepoConsultant repoConsultant)
         {
             _consultantRepo = consultantRepo; 
-            _repository = repository;
+           
         _nextStepsRepository = nextStepsRepository;
             _communicationUpdateRepo = communicationUpdateRepo;
             _attachmentRepo = attachmentRepo;
             _fileStorageService = fileStorageService;
+            _repoConsultant = repoConsultant;
         }
         public async Task<Result> Add(CreateConsultantRequest consultant)
         {
@@ -45,10 +47,10 @@ namespace CaseTracker.Service.DataLogics.Services
         {
            
            
-            Consultant? consultant = await _repository.GetAsync(x => x.Id == request.Id);
+            Consultant? consultant = await _repoConsultant.GetAsync(x => x.Id == request.Id);
             if (consultant is null) return Result.Failure(Constants.IdNotFound);
-            await _repository.UpdateAsync(request.ToEntity(consultant));
-            return Result.Success(Constants.Updated);
+           await _repoConsultant.UpdateAsync(request.ToEntity(consultant));
+            return Result.Success(Constants.Updated,request);
         }
         public async Task<Result> Delete(int id)
         {
@@ -80,7 +82,12 @@ namespace CaseTracker.Service.DataLogics.Services
                 DateOfTransfer = consultant.DateOfTransfer,
                 CaseSummary = consultant.CaseSummary,
                 NextSteps = consultant.NextSteps.Select(step => step.NextStep).ToList()!,
-                CommunicationUpdates = consultant.CommunicationUpdates.Select(x => x.CommunicationUpdate).ToList()!,
+                CommunicationUpdates = consultant.CommunicationUpdates.Select(cu => new CommunicationUpdateDTO
+                {
+                    CommunicationId = cu.CommunicationId,
+                    CommunicationUpdate = cu.CommunicationUpdate,
+                 
+                }).ToList()!,
                 AttachmentName = consultant.AttachmentModels.Select(x => x.AttachmentName).ToList()!
                 
             };
