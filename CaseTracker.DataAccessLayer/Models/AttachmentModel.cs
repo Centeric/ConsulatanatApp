@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace CaseTracker.DataAccessLayer.Models
 {
+    [Table("FileName")]
     public class AttachmentModel
     {
         public int AttachmentId { get; set; }

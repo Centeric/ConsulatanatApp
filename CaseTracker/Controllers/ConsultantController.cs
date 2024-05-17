@@ -1,12 +1,12 @@
 ﻿using CaseTracker.DataAccessLayer.DataContext;
 using CaseTracker.DataAccessLayer.Models;
 using CaseTracker.DataAccessLayer.Responses;
+using CaseTracker.Service.Common;
 using CaseTracker.Service.DataLogics.IServices;
-using CaseTracker.Service.DataLogics.Services;
 using CaseTracker.Service.Request;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata;
 
 namespace CaseTracker.Controllers
 {
@@ -15,12 +15,31 @@ namespace CaseTracker.Controllers
     public class ConsultantController : ControllerBase
     {
         private readonly IConsultantService _consultantService;
+        private readonly ApplicationDbContext _context;
 
-        public ConsultantController(IConsultantService consultantService)
+        public ConsultantController(IConsultantService consultantService, ApplicationDbContext context)
         {
             _consultantService = consultantService;
+            _context = context;
         }
-  
+        [HttpPost("register")]
+        public async Task<IActionResult> Register(UserRegisterDTO register)
+        {
+            var existingUser = await _context.UserDetail.FirstOrDefaultAsync(u => u.Email == register.Email);
+            if (existingUser != null)
+                return Conflict("Username already exists");
+
+            var newUser = new UserDetails
+            {
+                Email = register.Email,
+                Password = BCrypt.Net.BCrypt.HashPassword(register.Password)
+        };
+
+            _context.UserDetail.Add(newUser);
+            await _context.SaveChangesAsync();
+            return Ok(Result.Success(Constants.Added));
+        }
+
         [HttpPost("AddNewConsultant")]
         public async Task<IActionResult> Add(CreateConsultantRequest consultantRequest)
         {
