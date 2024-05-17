@@ -11,7 +11,7 @@
         "projectName": "CaseTracker.DataAccessLayer",
         "projectPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj",
         "packagesPath": "C:\\Users\\CentricTech\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\obj\\",
+        "outputPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -86,7 +86,7 @@
         "projectName": "CaseTracker.Service",
         "projectPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj",
         "packagesPath": "C:\\Users\\CentricTech\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.Service\\obj\\",
+        "outputPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\CaseTracker.Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
