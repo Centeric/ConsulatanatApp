@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "NC8jMrGUUiPnNkXr2qQsmpEV3eIYHd45Ilv4X9EK1REUdhFYgIejLzDxzA4740TxYYdDWzfegNl79uaXBPyVLA==",
+  "dgSpecHash": "+CLhWf/pD/70O5ZjnShh7BZPF6LrELpl0tXbvdRRF76PYVJFJ/OFlnHnmg1RgNPRKEVuMUn/BAKNMizWhchZ6A==",
   "success": true,
   "projectFilePath": "C:\\Users\\Indus\\Source\\Repos\\ConsulatanatApp\\CaseTracker\\CaseTracker.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Indus\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\Indus\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Indus\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\6.0.27\\microsoft.aspnetcore.authentication.jwtbearer.6.0.27.nupkg.sha512",
     "C:\\Users\\Indus\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",

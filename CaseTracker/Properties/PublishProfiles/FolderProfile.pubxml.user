@@ -5,7 +5,7 @@ https://go.microsoft.com/fwlink/?LinkID=208121.
 <Project>
   <PropertyGroup>
     <_PublishTargetUrl>D:\CaseTracker</_PublishTargetUrl>
-    <History>True|2024-05-16T14:21:42.4282406Z;True|2024-05-16T19:21:20.9411017+05:00;True|2024-05-16T19:09:34.3033213+05:00;True|2024-05-16T19:07:43.0141664+05:00;True|2024-05-16T19:00:01.8205156+05:00;</History>
+    <History>True|2024-05-17T15:48:47.9279394Z;True|2024-05-17T20:38:56.8925850+05:00;True|2024-05-17T20:37:16.5500090+05:00;True|2024-05-16T19:21:42.4282406+05:00;True|2024-05-16T19:21:20.9411017+05:00;True|2024-05-16T19:09:34.3033213+05:00;True|2024-05-16T19:07:43.0141664+05:00;True|2024-05-16T19:00:01.8205156+05:00;</History>
     <LastFailureDetails />
   </PropertyGroup>
 </Project>
