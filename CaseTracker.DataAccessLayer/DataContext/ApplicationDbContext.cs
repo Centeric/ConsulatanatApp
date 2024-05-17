@@ -14,6 +14,7 @@ namespace CaseTracker.DataAccessLayer.DataContext
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) 
         {
+
             //try
             //{
             //    RelationalDatabaseCreator? dbCreator = Database.GetService<IDatabaseCreator>() as RelationalDatabaseCreator;
