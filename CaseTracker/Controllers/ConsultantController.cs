@@ -108,6 +108,10 @@ namespace CaseTracker.Controllers
         {
             return Ok(await _consultantService.GetConsultant());
         }
-       
+        [HttpGet("GetAllConsultant")]
+        public async Task<IActionResult> GetAllConsultant1()
+        {
+            return Ok(await _consultantService.GetConsultant());
+        }
     }
 }

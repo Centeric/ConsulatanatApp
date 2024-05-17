@@ -82,6 +82,7 @@ C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\obj\Debug\net6.0\r
 C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\obj\Debug\net6.0\CaseTracker.pdb
 C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\obj\Debug\net6.0\CaseTracker.genruntimeconfig.cache
 C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\obj\Debug\net6.0\ref\CaseTracker.dll
+<<<<<<< HEAD
 C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\appsettings.json
 C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\CaseTracker.exe
@@ -167,3 +168,5 @@ C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker\obj\Debug\net6.0\CaseTra
 C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker\obj\Debug\net6.0\CaseTracker.genruntimeconfig.cache
 C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker\obj\Debug\net6.0\ref\CaseTracker.dll
 C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\BCrypt.Net-Next.dll
+=======
+>>>>>>> 70b419a6b3ae799230962554c87cd6f2866dc6a5
