@@ -30,6 +30,7 @@ namespace CaseTracker.DataAccessLayer.DataContext
             //}
         }
         public  DbSet<Consultant> Consultants { get; set; }
+        public DbSet<UserDetails> UserDetail { get; set; }
         public  DbSet<NextSteps> NextSteps { get; set; }
         public DbSet<CommunicationUpdates> CommunicationUpdates { get; set; }
         public DbSet<AttachmentModel> AttachmentModels { get; set; }
