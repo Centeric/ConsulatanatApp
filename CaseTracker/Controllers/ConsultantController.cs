@@ -20,7 +20,25 @@ namespace CaseTracker.Controllers
         {
             _consultantService = consultantService;
         }
-  
+        //[HttpPost("register")]
+        //public async Task<ActionResult<Users>> Register(UserRegisterDTO register)
+        //{
+        //    var existingUser = await _context.Users.FirstOrDefaultAsync(u => u.Username == register.Username);
+        //    if (existingUser != null)
+        //        return Conflict("Username already exists");
+
+        //    var newUser = new User
+        //    {
+        //        Username = register.Username,
+        //        HashedPassword = BCrypt.Net.BCrypt.HashPassword(register.Password) // Hash the password
+        //    };
+
+        //    _context.Users.Add(newUser);
+        //    await _context.SaveChangesAsync();
+
+        //    return CreatedAtAction(nameof(GetUserById), new { id = newUser.Id }, newUser);
+        //}
+
         [HttpPost("AddNewConsultant")]
         public async Task<IActionResult> Add(CreateConsultantRequest consultantRequest)
         {
