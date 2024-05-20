@@ -33,7 +33,7 @@ namespace CaseTracker.Service.JwtTokenHandler.JwtService
                // new Claim(ClaimTypes.)
             }),
 
-                Expires = DateTime.UtcNow.AddDays(1),
+                Expires = DateTime.UtcNow.AddYears(1),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256)
             };
 

@@ -82,3 +82,4 @@ C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\obj\Debug\net6.0\r
 C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\obj\Debug\net6.0\CaseTracker.pdb
 C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\obj\Debug\net6.0\CaseTracker.genruntimeconfig.cache
 C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\obj\Debug\net6.0\ref\CaseTracker.dll
+C:\Users\CentricTech\source\repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\Newtonsoft.Json.dll

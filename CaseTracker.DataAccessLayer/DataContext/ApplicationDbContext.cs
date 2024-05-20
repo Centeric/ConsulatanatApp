@@ -33,6 +33,7 @@ namespace CaseTracker.DataAccessLayer.DataContext
         public  DbSet<NextSteps> NextSteps { get; set; }
         public DbSet<CommunicationUpdates> CommunicationUpdates { get; set; }
         public DbSet<AttachmentModel> AttachmentModels { get; set; }
+        public DbSet<Users> AuthUsers { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -47,8 +48,9 @@ namespace CaseTracker.DataAccessLayer.DataContext
                 .HasKey(cu => cu.CommunicationId);  
 
             modelBuilder.Entity<AttachmentModel>()
-                .HasKey(a => a.AttachmentId);  
-
+                .HasKey(a => a.AttachmentId);
+            modelBuilder.Entity<Users>()
+               .HasKey(a => a.UserId);
 
             modelBuilder.Entity<Consultant>()
                 .HasMany(c => c.NextSteps)

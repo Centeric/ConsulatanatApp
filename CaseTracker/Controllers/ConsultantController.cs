@@ -4,6 +4,7 @@ using CaseTracker.DataAccessLayer.Responses;
 using CaseTracker.Service.DataLogics.IServices;
 using CaseTracker.Service.DataLogics.Services;
 using CaseTracker.Service.Request;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ namespace CaseTracker.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [EnableCors("MyCorsPolicy")]
     public class ConsultantController : ControllerBase
     {
         private readonly IConsultantService _consultantService;
@@ -71,10 +73,21 @@ namespace CaseTracker.Controllers
         {
             return Ok(await _consultantService.GetConsultant());
         }
-        [HttpGet("GetAllConsultant")]
-        public async Task<IActionResult> GetAllConsultant1()
+        [HttpDelete("DeleteNextSteps")]
+        public async Task<IActionResult> DeleteNextSteps(int NextStepId)
         {
-            return Ok(await _consultantService.GetConsultant());
+            return Ok(await _consultantService.DeleteNextStep(NextStepId));
         }
+        [HttpDelete("DeleteCommunicationUpdates")]
+        public async Task<IActionResult> DeleteCommunicationUpdates(int CommunicationId)
+        {
+            return Ok(await _consultantService.DeleteCommunication(CommunicationId));
+        }
+        [HttpDelete("DeleteAttachments")]
+        public async Task<IActionResult> DeleteAttachments(int AttachmentId)
+        {
+            return Ok(await _consultantService.DeleteAttachment(AttachmentId));
+        }
+
     }
 }

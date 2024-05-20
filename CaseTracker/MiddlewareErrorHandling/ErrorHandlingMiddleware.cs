@@ -1,4 +1,7 @@
-﻿namespace CaseTracker.MiddlewareErrorHandling
+﻿using CaseTracker.Service.Common;
+using Newtonsoft.Json;
+
+namespace CaseTracker.MiddlewareErrorHandling
 {
     public class ErrorHandlingMiddleware
     {
@@ -19,18 +22,26 @@
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Unhandled exception."); // Log the exception
+                _logger.LogError(ex, "Unhandled exception.");
                 if (!context.Response.HasStarted)
                 {
                     context.Response.ContentType = "application/json";
                     context.Response.StatusCode = 500; // Internal Server Error
-                    await context.Response.WriteAsync("An internal server error has occurred.");
+
+                    var result = new
+                    {
+                        isSuccess = false,
+                        message = Constants.Error,
+                        data = (object)null
+                    };
+
+                    await context.Response.WriteAsync(JsonConvert.SerializeObject(result));
                 }
             }
         }
     }
 
-  
+
     public static class ErrorHandlingMiddlewareExtensions
     {
         public static IApplicationBuilder UseCustomErrorHandling(this IApplicationBuilder builder)

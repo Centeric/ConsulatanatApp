@@ -31,10 +31,46 @@ namespace CaseTracker.DataAccessLayer.DataServices
                 .Where(x => x.Id == id)
                 .FirstOrDefaultAsync();
         }
+        public async Task<NextSteps?> GetByNextStepId(int consultantId)
+        {
+            return await _dbContext
+                .NextSteps
+                .Where(x => x.NextStepId == consultantId)
+                .FirstOrDefaultAsync();
+        }
+        public async Task<CommunicationUpdates?> GetByCommunicationId(int consultantId)
+        {
+            return await _dbContext
+                .CommunicationUpdates
+                .Where(x => x.CommunicationId == consultantId)
+                .FirstOrDefaultAsync();
+        }
+        public async Task<AttachmentModel?> GetByAttachmentId(int consultantId)
+        {
+            return await _dbContext
+                .AttachmentModels
+                .Where(x => x.ConsultantId == consultantId)
+                .FirstOrDefaultAsync();
+        }
 
         public async Task<int> Delete(Consultant consultant)
         {
             _dbContext.Entry(consultant).State = EntityState.Modified;
+            return await _dbContext.SaveChangesAsync();
+        }
+        public async Task<int> DeleteStep(NextSteps next)
+        {
+            _dbContext.Entry(next).State = EntityState.Modified;
+            return await _dbContext.SaveChangesAsync();
+        }
+        public async Task<int> DeleteCommunicatioUpdate(CommunicationUpdates communication)
+        {
+            _dbContext.Entry(communication).State = EntityState.Modified;
+            return await _dbContext.SaveChangesAsync();
+        }
+        public async Task<int> DeleteAttachments(AttachmentModel attachment)
+        {
+            _dbContext.Entry(attachment).State = EntityState.Modified;
             return await _dbContext.SaveChangesAsync();
         }
         public async Task<Consultant?> GetById(string consultationId)

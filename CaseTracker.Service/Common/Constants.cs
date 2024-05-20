@@ -16,5 +16,13 @@ namespace CaseTracker.Service.Common
         public const string Deleted = "Data deleted successfully.";
         public const string Updated = "Data updated successfully.";
         public const string DataNotFound = "Data Not Found";
+        public const string EnterData="Please Enter Data";
+
+        public class _User
+        {
+            public const string LoggedIn = "User logged in successfully!";
+            public const string EmailError = "Email not found.";
+            public const string PasswordError = "Incorrect password.";
+        }
     }
 }

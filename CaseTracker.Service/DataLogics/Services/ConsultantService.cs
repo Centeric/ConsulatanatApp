@@ -11,6 +11,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace CaseTracker.Service.DataLogics.Services
 {
@@ -54,14 +55,39 @@ namespace CaseTracker.Service.DataLogics.Services
         }
         public async Task<Result> Delete(int id)
         {
-            Consultant? consultant = await _consultantRepo.GetById(id);
-            if (consultant is null) return Result.Failure(Constants.IdNotFound);
+            Consultant? entity = await _repoConsultant.GetAsync(x=> x.Id == id);
+            if (entity is null) return Result.Failure(Constants.IdNotFound);
            // consultant.ConsultationStatus = ;
-            await _consultantRepo.Delete(consultant);
+            await _repoConsultant.DeleteAsync(entity);
+            return Result.Success(Constants.Deleted);
+        }
+        public async Task<Result> DeleteNextStep(int NextStepId)
+        {
+            NextSteps? entity = await _nextStepsRepository.GetAsync(x=> x.NextStepId == NextStepId);
+            if (entity is null) return Result.Failure(Constants.IdNotFound);
+            await _nextStepsRepository.DeleteAsync(entity);
+            return Result.Success(Constants.Deleted);
+        }
+        public async Task<Result> DeleteCommunication(int CommunicationId)
+        {
+            CommunicationUpdates? entity = await _communicationUpdateRepo.GetAsync(x=>x.CommunicationId == CommunicationId);
+            if (entity is null) return Result.Failure(Constants.IdNotFound);
+            await _communicationUpdateRepo.DeleteAsync(entity);
+            return Result.Success(Constants.Deleted);
+        }
+        public async Task<Result> DeleteAttachment(int AttachmentId)
+        {
+            AttachmentModel? entity = await _attachmentRepo.GetAsync(x=>x.AttachmentId == AttachmentId);
+            if (entity is null) return Result.Failure(Constants.IdNotFound);
+            await _attachmentRepo.DeleteAsync(entity);
             return Result.Success(Constants.Deleted);
         }
         public async Task<Result> GetById(string consultationId)
         {
+            if (string.IsNullOrEmpty(consultationId))
+            {
+                return Result.Failure(Constants.EnterData);
+            }
             Consultant? consultant = await _consultantRepo.GetById(consultationId);
             if (consultant == null) return Result.Failure(Constants.IdNotFound);
 

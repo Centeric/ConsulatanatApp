@@ -3,8 +3,12 @@ using CaseTracker.DataAccessLayer.DataServices;
 using CaseTracker.DataAccessLayer.IDataServices;
 using CaseTracker.DataAccessLayer.Models;
 using CaseTracker.MiddlewareErrorHandling;
+using CaseTracker.Service.Common;
 using CaseTracker.Service.DataLogics.IServices;
 using CaseTracker.Service.DataLogics.Services;
+using CaseTracker.Service.JwtTokenHandler;
+using CaseTracker.Service.JwtTokenHandler.JwtService;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Serilog;
 
@@ -12,7 +16,29 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+       .ConfigureApiBehaviorOptions(options =>
+       {
+           options.InvalidModelStateResponseFactory = context =>
+           {
+               var errors = context.ModelState
+                   .Where(e => e.Value.Errors.Count > 0)
+                   .ToDictionary(
+                       kvp => kvp.Key,
+                       kvp => kvp.Value.Errors.Select(e => e.ErrorMessage).ToArray()
+                   );
+
+               var result = new
+               {
+                   isSuccess = false,
+                   message = Constants.EnterData,
+                   data = (object)null,
+                   errors
+               };
+
+               return new BadRequestObjectResult(result);
+           };
+       });
 builder.Services
     .AddDbContext<ApplicationDbContext>(options =>
         options.UseSqlServer(builder.Configuration
@@ -27,10 +53,23 @@ builder.Services.AddScoped<IRepoConsultant, RepoConsultant>();
 builder.Services.AddScoped<INextStepRepo, NextStepRepo>();
 builder.Services.AddScoped<ICommunicationUpdateRepo, CommunicationUpdateRepo>();
 builder.Services.AddScoped<IAttachmentRepo, AttachmentRepo>();
+builder.Services.AddScoped<IAuthRepo, AuthRepo>();
+builder.Services.AddScoped<IAuthService, AuthService>();
+builder.Services.AddScoped<IJwtAuthenticateService, JwtAuthenticateService>();
+builder.Services.AddScoped<IJwtParams, JwtParams>();
 #endregion
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("MyCorsPolicy", builder =>
+    {
+        builder.AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader();
+    });
+});
 
 var app = builder.Build();
 
@@ -45,7 +84,8 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-
+app.UseCors();
+app.UseCustomErrorHandling();
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
@@ -53,7 +93,6 @@ app.UseEndpoints(endpoints =>
 
 
 
-app.UseCustomErrorHandling();
 app.UseHttpsRedirection();
 
 

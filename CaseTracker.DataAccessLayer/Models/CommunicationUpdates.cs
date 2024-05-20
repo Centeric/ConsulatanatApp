@@ -13,7 +13,7 @@ namespace CaseTracker.DataAccessLayer.Models
         public string? CommunicationUpdate { get; set; }
         public DateTime CommunicatioUpdateTime { get; set; }
         public int ConsultantId { get; set; }
-        [ForeignKey("ConsultationId")]
+        [ForeignKey("ConsultantId")]
         public Consultant? Consultant { get; set; }
 
     }
