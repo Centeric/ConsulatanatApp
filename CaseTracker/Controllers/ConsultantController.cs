@@ -17,11 +17,13 @@ namespace CaseTracker.Controllers
     public class ConsultantController : ControllerBase
     {
         private readonly IConsultantService _consultantService;
-
+      
         public ConsultantController(IConsultantService consultantService)
         {
             _consultantService = consultantService;
+          
         }
+      
   
         [HttpPost("AddNewConsultant")]
         public async Task<IActionResult> Add(CreateConsultantRequest consultantRequest)

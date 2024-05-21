@@ -1250,6 +1250,7 @@
         "dependencies": {
           "CaseTracker.DataAccessLayer": "1.0.0",
           "Microsoft.AspNetCore.Authentication.JwtBearer": "6.0.27",
+          "Newtonsoft.Json": "13.0.3",
           "Swashbuckle.AspNetCore.SwaggerGen": "6.4.0"
         },
         "compile": {
@@ -3416,11 +3417,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker\\CaseTracker.csproj",
+      "projectUniqueName": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\CaseTracker\\CaseTracker.csproj",
       "projectName": "CaseTracker",
-      "projectPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker\\CaseTracker.csproj",
+      "projectPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\CaseTracker\\CaseTracker.csproj",
       "packagesPath": "C:\\Users\\CentricTech\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker\\obj\\",
+      "outputPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\CaseTracker\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -3441,11 +3442,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj": {
-              "projectPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj"
+            "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj": {
+              "projectPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj"
             },
-            "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj": {
-              "projectPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj"
+            "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj": {
+              "projectPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj"
             }
           }
         }

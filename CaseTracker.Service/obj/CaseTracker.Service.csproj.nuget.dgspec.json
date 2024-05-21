@@ -1,15 +1,15 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj": {}
+    "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj": {}
   },
   "projects": {
-    "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj": {
+    "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj",
+        "projectUniqueName": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj",
         "projectName": "CaseTracker.DataAccessLayer",
-        "projectPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj",
+        "projectPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj",
         "packagesPath": "C:\\Users\\CentricTech\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
@@ -79,12 +79,12 @@
         }
       }
     },
-    "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj": {
+    "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj",
+        "projectUniqueName": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj",
         "projectName": "CaseTracker.Service",
-        "projectPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj",
+        "projectPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj",
         "packagesPath": "C:\\Users\\CentricTech\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\CaseTracker.Service\\obj\\",
         "projectStyle": "PackageReference",
@@ -107,8 +107,8 @@
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj": {
-                "projectPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj"
+              "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj": {
+                "projectPath": "C:\\Users\\CentricTech\\Source\\Repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj"
               }
             }
           }
@@ -126,6 +126,10 @@
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",
               "version": "[6.0.27, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
             },
             "Swashbuckle.AspNetCore.SwaggerGen": {
               "target": "Package",

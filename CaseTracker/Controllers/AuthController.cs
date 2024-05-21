@@ -35,5 +35,6 @@ namespace CaseTracker.Controllers
             Result response = await _authService.Delete(userId);
             return Ok(response);
         }
+
     }
 }
