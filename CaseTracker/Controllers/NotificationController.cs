@@ -34,7 +34,7 @@ namespace CaseTracker.Controllers
                         IsSeen = n.IsSeen
                     })
                     .ToListAsync();
-                return Ok(notifications);
+                return Ok(new { Message = "Notifications Loaded Successfully",  notifications });
             }
             catch (Exception ex)
             {
