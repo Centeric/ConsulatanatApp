@@ -9,5 +9,6 @@ namespace CaseTracker.DataAccessLayer.IDataServices
 {
     public interface IRepoConsultant : IRepository<Consultant>
     {
+      
     }
 }

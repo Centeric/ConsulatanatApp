@@ -1,4 +1,5 @@
 ﻿using CaseTracker.DataAccessLayer.Models;
+using CaseTracker.Service.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,18 +14,20 @@ namespace CaseTracker.Service.Request
         public string? ConsultationId { get; set; }
         public string? TimeShareName { get; set; }
         public string? ClientName { get; set; }
-        public string? ConsultationStatus { get; set; }
+        public int? ConsultationStatus { get; set; }
         public string? TimeShareLocation { get; set; }
         public bool PaymentReceived { get; set; }
         public string? LeadConsultant { get; set; }
         public string? AssistantConsultant { get; set; }
         public DateTime FilingDate { get; set; }
-        public DateTime HearingDate { get; set; }
+     
         public DateTime DeadlineForDocumentSubmission { get; set; }
         public DateTime DateOfTransfer { get; set; }
         public string? CaseSummary { get; set; }
-      //  public List<CreateNextStepRequest> NextSteps { get; set; } = new List<CreateNextStepRequest>();
-       // public List<CreateCommunicationRequest> CommunicationUpdates { get; set; } = new List<CreateCommunicationRequest>();
+        public string? Email { get; set; }
+        public string? PhoneNumber { get; set; }
+      //  public string? ProcessStatus { get; set; }
+
         public Consultant ToEntity()
         {
             return new Consultant
@@ -33,18 +36,19 @@ namespace CaseTracker.Service.Request
                 ConsultationId = ConsultationId,
                 TimeShareName = TimeShareName,
                 ClientName = ClientName,
-                ConsultationStatus = 1,
+                ConsultationStatus = ConsultationStatus ?? 0,
                 TimeShareLocation = TimeShareLocation,
                 PaymentReceived = PaymentReceived,
                 LeadConsultant = LeadConsultant,
                 AssistantConsultant = AssistantConsultant,
                 FilingDate = FilingDate,
-                HearingDate = HearingDate,
+                ProcessStatus = Constants._ConsultantStatus.StatusPending,
                 DeadlineForDocumentSubmission = DeadlineForDocumentSubmission,
                 DateOfTransfer = DateOfTransfer,
                 CaseSummary = CaseSummary,
-               // NextSteps = NextSteps.Select(ns => ns.ToEntity()).ToList(),
-               // CommunicationUpdates = CommunicationUpdates.Select(cu => cu.ToEntity()).ToList()
+                Email = Email,
+                PhoneNumber = PhoneNumber
+             
             };
         }
     }

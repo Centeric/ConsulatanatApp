@@ -19,10 +19,13 @@ namespace CaseTracker.Service.Request
         public string? LeadConsultant { get; set; }
         public string? AssistantConsultant { get; set; }
         public DateTime FilingDate { get; set; }
-        public DateTime HearingDate { get; set; }
+      
         public DateTime DeadlineForDocumentSubmission { get; set; }
         public DateTime DateOfTransfer { get; set; }
         public string? CaseSummary { get; set; }
+        public string? Email { get; set; }
+        public string? PhoneNumber { get; set; }
+        public string? ProcessStatus { get; set; }
         public Consultant ToEntity(Consultant consultant)
         {
 
@@ -36,10 +39,12 @@ namespace CaseTracker.Service.Request
             consultant.LeadConsultant = LeadConsultant;
             consultant.AssistantConsultant = AssistantConsultant;
             consultant.FilingDate = FilingDate;
-            consultant.HearingDate = HearingDate;
             consultant.DeadlineForDocumentSubmission = DeadlineForDocumentSubmission;
             consultant.DateOfTransfer = DateOfTransfer;
-                consultant.CaseSummary = CaseSummary
+            consultant.CaseSummary = CaseSummary;
+            consultant.Email = Email;
+            consultant.PhoneNumber = PhoneNumber;
+                consultant.ProcessStatus = ProcessStatus
 ;
             return consultant;
         }
