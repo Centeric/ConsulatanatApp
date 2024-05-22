@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker\\CaseTracker.csproj": {}
+    "C:\\Users\\Indus\\Source\\Repos\\ConsulatanatApp\\CaseTracker\\CaseTracker.csproj": {}
   },
   "projects": {
-    "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj": {
+    "C:\\Users\\Indus\\Source\\Repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Indus\\Source\\Repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj",
         "projectName": "CaseTracker.DataAccessLayer",
-        "projectPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj",
-        "packagesPath": "C:\\Users\\CentricTech\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\obj\\",
+        "projectPath": "C:\\Users\\Indus\\Source\\Repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj",
+        "packagesPath": "C:\\Users\\Indus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Indus\\Source\\Repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\CentricTech\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Indus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -75,24 +76,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj": {
+    "C:\\Users\\Indus\\Source\\Repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj",
+        "projectUniqueName": "C:\\Users\\Indus\\Source\\Repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj",
         "projectName": "CaseTracker.Service",
-        "projectPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj",
-        "packagesPath": "C:\\Users\\CentricTech\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.Service\\obj\\",
+        "projectPath": "C:\\Users\\Indus\\Source\\Repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj",
+        "packagesPath": "C:\\Users\\Indus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Indus\\Source\\Repos\\ConsulatanatApp\\CaseTracker.Service\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\CentricTech\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Indus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -101,14 +102,15 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj": {
-                "projectPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj"
+              "C:\\Users\\Indus\\Source\\Repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj": {
+                "projectPath": "C:\\Users\\Indus\\Source\\Repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj"
               }
             }
           }
@@ -148,24 +150,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker\\CaseTracker.csproj": {
+    "C:\\Users\\Indus\\Source\\Repos\\ConsulatanatApp\\CaseTracker\\CaseTracker.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker\\CaseTracker.csproj",
+        "projectUniqueName": "C:\\Users\\Indus\\Source\\Repos\\ConsulatanatApp\\CaseTracker\\CaseTracker.csproj",
         "projectName": "CaseTracker",
-        "projectPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker\\CaseTracker.csproj",
-        "packagesPath": "C:\\Users\\CentricTech\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker\\obj\\",
+        "projectPath": "C:\\Users\\Indus\\Source\\Repos\\ConsulatanatApp\\CaseTracker\\CaseTracker.csproj",
+        "packagesPath": "C:\\Users\\Indus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Indus\\Source\\Repos\\ConsulatanatApp\\CaseTracker\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\CentricTech\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Indus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -174,17 +176,18 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
             "projectReferences": {
-              "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj": {
-                "projectPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj"
+              "C:\\Users\\Indus\\Source\\Repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj": {
+                "projectPath": "C:\\Users\\Indus\\Source\\Repos\\ConsulatanatApp\\CaseTracker.DataAccessLayer\\CaseTracker.DataAccessLayer.csproj"
               },
-              "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj": {
-                "projectPath": "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj"
+              "C:\\Users\\Indus\\Source\\Repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj": {
+                "projectPath": "C:\\Users\\Indus\\Source\\Repos\\ConsulatanatApp\\CaseTracker.Service\\CaseTracker.Service.csproj"
               }
             }
           }
@@ -237,7 +240,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
