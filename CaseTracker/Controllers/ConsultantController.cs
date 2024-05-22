@@ -90,6 +90,23 @@ namespace CaseTracker.Controllers
         {
             return Ok(await _consultantService.DeleteAttachment(AttachmentId));
         }
+        [HttpPut("UpdateStatusByConsultationId")]
+        public async Task<IActionResult> UpdateStatusByConsultationId([FromBody] UpdateStatusRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
+            var result = await _consultantService.UpdateStatus(request);
+            if (result.IsSuccess)
+            {
+                return Ok(result);
+            }
+            else
+            {
+                return BadRequest("Error while updating status");
+            }
+        }
     }
 }

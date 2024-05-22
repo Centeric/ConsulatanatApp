@@ -32,7 +32,7 @@ namespace CaseTracker.MiddlewareErrorHandling
                     {
                         isSuccess = false,
                         message = Constants.Error,
-                        data = (object)null
+                        data = (object?)null
                     };
 
                     await context.Response.WriteAsync(JsonConvert.SerializeObject(result));

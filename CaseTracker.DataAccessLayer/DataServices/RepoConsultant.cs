@@ -1,6 +1,7 @@
 ﻿using CaseTracker.DataAccessLayer.DataContext;
 using CaseTracker.DataAccessLayer.IDataServices;
 using CaseTracker.DataAccessLayer.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,5 +16,7 @@ namespace CaseTracker.DataAccessLayer.DataServices
         public RepoConsultant(ApplicationDbContext dbContext) : base(dbContext)
         {
         }
+  
+
     }
 }

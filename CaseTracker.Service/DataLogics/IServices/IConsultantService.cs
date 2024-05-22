@@ -21,6 +21,6 @@ namespace CaseTracker.Service.DataLogics.IServices
         Task<Result> DeleteNextStep(int NextStepId);
         Task<Result> DeleteCommunication(int CommunicationId);
         Task<Result> DeleteAttachment(int AttachmentId);
-        // Task<Result> AddAttachment(CreateAttachmentRequest request);
+        Task<Result> UpdateStatus(UpdateStatusRequest request);
     }
 }
