@@ -17,6 +17,7 @@ namespace CaseTracker.Service.Common
         public const string Updated = "Data updated successfully.";
         public const string DataNotFound = "Data Not Found";
         public const string EnterData="Please Enter Data";
+        public const string NotificationLoad="Notification Load Successfully";
 
         public class _User
         {

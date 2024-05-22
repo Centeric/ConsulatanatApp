@@ -57,6 +57,9 @@ builder.Services.AddScoped<IAuthRepo, AuthRepo>();
 builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IJwtAuthenticateService, JwtAuthenticateService>();
 builder.Services.AddScoped<IJwtParams, JwtParams>();
+builder.Services.AddScoped<IUserRepo, UserRepo>();
+builder.Services.AddScoped<INotificationService, NotificationService>();
+builder.Services.AddScoped<INotificationRepo, NotificationRepo>();
 #endregion
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();

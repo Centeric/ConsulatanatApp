@@ -26,7 +26,7 @@ namespace CaseTracker.MiddlewareErrorHandling
                 if (!context.Response.HasStarted)
                 {
                     context.Response.ContentType = "application/json";
-                    context.Response.StatusCode = 500; // Internal Server Error
+                    context.Response.StatusCode = 500;
 
                     var result = new
                     {

@@ -18,17 +18,17 @@ namespace CaseTracker.Service.DataLogics.Services
     public class ConsultantService : IConsultantService
     {
         private readonly IConsultantRepo _consultantRepo;
-       
+        private readonly INotificationService _notificationService;
         private readonly INextStepRepo _nextStepsRepository;
         private readonly ICommunicationUpdateRepo _communicationUpdateRepo;
         private readonly IAttachmentRepo _attachmentRepo;
         private readonly IFileStorageService _fileStorageService;
         private readonly IRepoConsultant _repoConsultant;
         public ConsultantService(IConsultantRepo consultantRepo,  INextStepRepo nextStepsRepository, ICommunicationUpdateRepo communicationUpdateRepo,
-            IAttachmentRepo attachmentRepo, IFileStorageService fileStorageService, IRepoConsultant repoConsultant)
+            IAttachmentRepo attachmentRepo, IFileStorageService fileStorageService, IRepoConsultant repoConsultant, INotificationService notificationService)
         {
             _consultantRepo = consultantRepo; 
-           
+           _notificationService = notificationService;
         _nextStepsRepository = nextStepsRepository;
             _communicationUpdateRepo = communicationUpdateRepo;
             _attachmentRepo = attachmentRepo;
@@ -137,15 +137,65 @@ namespace CaseTracker.Service.DataLogics.Services
             return Result.Success(Constants.DataLoaded, consultantList);
         }
 
+  
         public async Task<Result> CreateNextStep(CreateNextStepRequest request)
         {
-            return Result.Success(Constants.Added, await _nextStepsRepository.AddAsync(request.ToEntity()));
+          
+            var nextStep = request.ToEntity();
+            var addResult = await _nextStepsRepository.AddAsync(nextStep);
+
+            if (addResult == null)
+            {
+                return Result.Failure(Constants.Error, "Failed to add the NextStep.");
+            }
+
+           
+            await _notificationService.CreateNotificationAsync("New NextStep", "A new NextStep has been created.");
+
+         
+            return Result.Success(Constants.Added, addResult);
         }
 
         public async Task<Result> CreateCommunicationUpdate(CreateCommunicationRequest request)
         {
-            return Result.Success(Constants.Added, await _communicationUpdateRepo.AddAsync(request.ToEntity()));
+           
+            var communication = request.ToEntity();
+            var addResult = await _communicationUpdateRepo.AddAsync(communication);
+
+            if (addResult == null)
+            {
+                return Result.Failure(Constants.Error, "Failed to Add the CommunicationUpdates.");
+            }
+
+
+            await _notificationService.CreateNotificationAsync("New CommunicationUpdates", "A new CommunicationUpdates has been created.");
+
+
+            return Result.Success(Constants.Added, addResult);
         }
+        //public async Task<Result> AddAttachment(CreateAttachmentRequest request)
+        //{
+        //    try
+        //    {
+               
+        //        var filePath = await _fileStorageService.SaveFileAsync(request.File);
+
+             
+        //        var attachment = new AttachmentModel
+        //        {
+        //            ConsultantId = request.ConsultantId,
+        //            AttachmentName = filePath,
+        //            AttachmentType = Path.GetExtension(request.File.FileName)
+        //        };
+
+        //        await _attachmentRepo.AddAsync(attachment);
+        //        return Result.Success("Added", filePath); 
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return Result.Failure("Error", ex.Message);
+        //    }
+        //}
         public async Task<Result> AddAttachment(CreateAttachmentRequest request)
         {
             try
@@ -157,17 +207,28 @@ namespace CaseTracker.Service.DataLogics.Services
                 var attachment = new AttachmentModel
                 {
                     ConsultantId = request.ConsultantId,
-                    AttachmentName = filePath,
+                    AttachmentName = filePath,  
                     AttachmentType = Path.GetExtension(request.File.FileName)
                 };
 
+               
                 await _attachmentRepo.AddAsync(attachment);
-                return Result.Success("Added", filePath); 
+
+              
+                await _notificationService.CreateNotificationAsync(
+                    "Attachment Added",
+                    $"A new Attachment '{request.File.FileName}' has been added."
+                );
+
+               
+                return Result.Success("Added", filePath);
             }
             catch (Exception ex)
             {
+               
                 return Result.Failure("Error", ex.Message);
             }
         }
+
     }
 }

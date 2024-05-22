@@ -1,4 +1,5 @@
-﻿using CaseTracker.DataAccessLayer.IDataServices;
+﻿using CaseTracker.DataAccessLayer.DataServices;
+using CaseTracker.DataAccessLayer.IDataServices;
 using CaseTracker.DataAccessLayer.Models;
 using CaseTracker.DataAccessLayer.Responses;
 using CaseTracker.Service.Common;
@@ -18,10 +19,12 @@ namespace CaseTracker.Service.DataLogics.Services
     {
         private readonly IJwtAuthenticateService _jwtAuthenticateService;
         private readonly IAuthRepo _authRepo;
-        public AuthService(IAuthRepo authRepo, IJwtAuthenticateService jwtAuthenticateService) 
+        private readonly IUserRepo _userRepo;
+        public AuthService(IAuthRepo authRepo, IJwtAuthenticateService jwtAuthenticateService, IUserRepo userRepo)
         { 
             _authRepo = authRepo;
             _jwtAuthenticateService = jwtAuthenticateService;
+            _userRepo = userRepo;
         }
         public async Task<Result> Add(CreateUserRequest userRequest)
         {
@@ -61,12 +64,10 @@ namespace CaseTracker.Service.DataLogics.Services
         }
         public async Task<Result> Delete(int userId)
         {
-            Users? response = await _authRepo.Get(userId);
-            return response is null
-                ? Result.Failure(Constants.IdNotFound)
-                : await _authRepo.Delete(response) != 0
-                    ? Result.Success(Constants.Deleted)
-                    : Result.Failure(Constants.Error);
+            Users?  entity = await _userRepo.GetAsync(x=>x.UserId == userId);
+            if (entity is null) return Result.Failure(Constants.IdNotFound);
+            await _userRepo.DeleteAsync(entity);
+            return Result.Success(Constants.Deleted);
         }
     }
 }
