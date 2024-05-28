@@ -130,30 +130,31 @@ namespace CaseTracker.Service.DataLogics.Services
 
             ConsultantResponse response = new()
             {
-               Id = consultant.Id,
-               ConsultationId = consultant.ConsultationId,
-               TimeShareName = consultant.TimeShareName,
-               ClientName = consultant.ClientName,
-               ConsultationStatus = consultant.ConsultationStatus,
-               TimeShareLocation = consultant.TimeShareLocation,
-               PaymentReceived = consultant.PaymentReceived,
-               LeadConsultant = consultant.LeadConsultant,
-               AssistantConsultant = consultant.AssistantConsultant,
-               FilingDate = consultant.FilingDate,
-                DeadlineForDocumentSubmission=consultant.DeadlineForDocumentSubmission,
+                Id = consultant.Id,
+                ConsultationId = consultant.ConsultationId,
+                TimeShareName = consultant.TimeShareName,
+                ClientName = consultant.ClientName,
+                ConsultationStatus = consultant.ConsultationStatus,
+                TimeShareLocation = consultant.TimeShareLocation,
+                PaymentReceived = consultant.PaymentReceived,
+                LeadConsultant = consultant.LeadConsultant,
+                AssistantConsultant = consultant.AssistantConsultant,
+                FilingDate = consultant.FilingDate,
+                DeadlineForDocumentSubmission = consultant.DeadlineForDocumentSubmission,
                 DateOfTransfer = consultant.DateOfTransfer,
                 CaseSummary = consultant.CaseSummary,
                 Email = consultant.Email,
                 PhoneNumber = consultant.PhoneNumber,
-                ProcessStatus= consultant.ProcessStatus,
+                ProcessStatus = consultant.ProcessStatus,
                 NextSteps = consultant.NextSteps.Select(step => step.NextStep).ToList()!,
                 CommunicationUpdates = consultant.CommunicationUpdates.Select(cu => new CommunicationUpdateDTO
                 {
                     CommunicationId = cu.CommunicationId,
                     CommunicationUpdate = cu.CommunicationUpdate,
-                 
+
                 }).ToList()!,
-                AttachmentName = consultant.AttachmentModels.Select(x => x.AttachmentName).ToList()!
+                AttachmentName = consultant.AttachmentModels.Select(x => x.AttachmentName).ToList()!,
+                FileName = "Contracts"
                 
             };
             return Result.Success(Constants.DataLoaded, response);
@@ -165,6 +166,7 @@ namespace CaseTracker.Service.DataLogics.Services
 
             var consultantList = consultant.Select(item => new ConsultantGetResponse
             {
+                Id = item.Id,
               TimeShareName = item.TimeShareName,
               ConsultationId = item.ConsultationId,
               ClientName = item.ClientName,

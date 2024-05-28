@@ -28,6 +28,7 @@ namespace CaseTracker.DataAccessLayer.Responses
         public List<string> NextSteps { get; set; } = new List<string>();
         public List<CommunicationUpdateDTO> CommunicationUpdates { get; set; } = new List<CommunicationUpdateDTO>();
         public List<string> AttachmentName { get; set; } = new List<string>();
+        public string? FileName { get; set; }
     }
     public class CommunicationUpdateDTO
     {

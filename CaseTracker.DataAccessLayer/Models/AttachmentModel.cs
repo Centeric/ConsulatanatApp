@@ -11,6 +11,7 @@ namespace CaseTracker.DataAccessLayer.Models
     {
         public int AttachmentId { get; set; }
         public string? AttachmentName { get; set; }
+       // public string? FileName { get; set; }
         public string? AttachmentType { get; set; }
         public int ConsultantId { get; set; }
         [ForeignKey("ConsultantId")]

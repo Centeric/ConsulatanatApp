@@ -40,6 +40,7 @@ namespace CaseTracker.Service.Request
         }
     }
     public record CreateAttachmentRequest(
+     // string FileName,
       int ConsultantId,
       IFormFile File
   )
@@ -51,6 +52,7 @@ namespace CaseTracker.Service.Request
                 ConsultantId = ConsultantId,
                 AttachmentName = filePath,
                 AttachmentType = Path.GetExtension(File.FileName),
+                
                  // This assumes that AttachmentModel has a FilePath property to store the file path
             };
         }
