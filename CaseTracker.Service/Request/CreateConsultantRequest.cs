@@ -10,7 +10,7 @@ namespace CaseTracker.Service.Request
 {
     public sealed class CreateConsultantRequest
     {
-       
+          
         public string? ConsultationId { get; set; }
         public string? TimeShareName { get; set; }
         public string? ClientName { get; set; }

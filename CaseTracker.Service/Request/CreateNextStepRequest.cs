@@ -53,7 +53,7 @@ namespace CaseTracker.Service.Request
                 AttachmentName = filePath,
                 AttachmentType = Path.GetExtension(File.FileName),
                 
-                 // This assumes that AttachmentModel has a FilePath property to store the file path
+                
             };
         }
     }

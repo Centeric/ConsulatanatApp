@@ -11,6 +11,7 @@ namespace CaseTracker.DataAccessLayer.Responses
         public int Id { get; set; }
         public string? ConsultationId { get; set; }
         public string? TimeShareName { get; set; }
+        public string? TimeShareLocation { get; set; }
         public string? ClientName { get; set; }
         public int? ConsultationStatus { get; set; }
       

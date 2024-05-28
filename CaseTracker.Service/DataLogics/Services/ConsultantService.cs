@@ -38,11 +38,13 @@ namespace CaseTracker.Service.DataLogics.Services
         public async Task<Result> Add(CreateConsultantRequest consultant)
         {
             int response = await _consultantRepo.Add(consultant.ToEntity());
+            await _notificationService.CreateNotificationAsync("New Consultant", "A new Consultant has been created.");
 
             return response != 0
                 ? Result.Success(Constants.Added, consultant)
                 : Result.Failure(Constants.NotAdded)!;
         }
+
         //public async Task<Result> Add(CreateConsultantRequest consultantRequest)
         //{
         //    Consultant consultant = consultantRequest.ToEntity();
@@ -168,6 +170,7 @@ namespace CaseTracker.Service.DataLogics.Services
             {
                 Id = item.Id,
               TimeShareName = item.TimeShareName,
+              TimeShareLocation = item.TimeShareLocation,
               ConsultationId = item.ConsultationId,
               ClientName = item.ClientName,
               ConsultationStatus = item.ConsultationStatus,
