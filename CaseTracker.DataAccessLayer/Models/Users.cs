@@ -16,5 +16,6 @@ namespace CaseTracker.DataAccessLayer.Models
         public string? HashPassword { get; set; }
         public int EmailConfirmed { get; set; }
         public DateTime CreatedTime { get; set; }
+ 
     }
 }

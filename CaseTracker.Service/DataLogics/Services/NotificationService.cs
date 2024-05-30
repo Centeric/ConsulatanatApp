@@ -22,26 +22,51 @@ namespace CaseTracker.Service.DataLogics.Services
             _notificationRepo = notificationRepo;
             _context = context;
         }
-        public async Task CreateNotificationAsync(string title, string body)
+        public async Task CreateNotificationAsync(string consultationId, string title, string body)
         {
             try
             {
-                var notification = new Notification
+                var notification = new Notifications
                 {
+                    
+                    ConsultationId = consultationId,
                     Title = title,
                     Body = body,
                     NotificationDate = DateOnly.FromDateTime(DateTime.UtcNow),
                     IsSeen = false
                 };
 
-                await _context.Notifications.AddAsync(notification);
+                await _context.Notification.AddAsync(notification);
                 await _context.SaveChangesAsync();
             }
             catch (Exception ex)
             {
 
-                 Result.Failure(Constants.Error, "Failed to create notification.");
+                Result.Failure(Constants.Error, "Failed to create notification.");
             }
         }
+        //public async Task CreateNotificationAsync(int consultantId, string title, string body)
+        //{
+        //    try
+        //    {
+        //        var notification = new Notification
+        //        {
+        //            ConsultantId = consultantId,
+        //            Title = title,
+        //            Body = body,
+        //            NotificationDate = DateOnly.FromDateTime(DateTime.UtcNow),
+        //            IsSeen = false
+        //        };
+
+        //        await _context.Notifications.AddAsync(notification);
+        //        await _context.SaveChangesAsync();
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Result.Failure(Constants.Error, "Failed to create notification."); // Handle exception appropriately
+
+        //    }
+        //}
+
     }
 }

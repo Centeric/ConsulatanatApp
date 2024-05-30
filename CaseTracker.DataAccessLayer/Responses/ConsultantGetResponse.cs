@@ -21,4 +21,10 @@ namespace CaseTracker.DataAccessLayer.Responses
         public DateTime DateOfTransfer { get; set; }
       
     }
+    public class FileDownloadDTO
+    {
+        public Stream? FileStream { get; set; }
+        public string? FileName { get; set; }
+       
+    }
 }

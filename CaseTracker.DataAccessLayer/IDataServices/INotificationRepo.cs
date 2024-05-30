@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CaseTracker.DataAccessLayer.IDataServices
 {
-    public interface INotificationRepo: IRepository<Notification>
+    public interface INotificationRepo: IRepository<Notifications>
     {
     }
 }

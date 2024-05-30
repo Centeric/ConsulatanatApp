@@ -9,6 +9,7 @@ namespace CaseTracker.Service.DataLogics.IServices
 {
     public interface INotificationService
     {
-        Task CreateNotificationAsync(string title, string body);
+       Task CreateNotificationAsync(string consultationIdId, string title, string body);
+      
     }
 }

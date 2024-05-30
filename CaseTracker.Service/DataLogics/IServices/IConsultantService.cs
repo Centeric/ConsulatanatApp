@@ -22,5 +22,6 @@ namespace CaseTracker.Service.DataLogics.IServices
         Task<Result> DeleteCommunication(int CommunicationId);
         Task<Result> DeleteAttachment(int AttachmentId);
         Task<Result> UpdateStatus(UpdateStatusRequest request);
+        Task<FileDownloadDTO> GetByAttachmentPath(string fileName);
     }
 }

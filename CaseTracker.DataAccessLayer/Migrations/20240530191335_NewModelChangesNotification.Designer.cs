@@ -4,6 +4,7 @@ using CaseTracker.DataAccessLayer.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CaseTracker.DataAccessLayer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240530191335_NewModelChangesNotification")]
+    partial class NewModelChangesNotification
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -164,7 +166,7 @@ namespace CaseTracker.DataAccessLayer.Migrations
                     b.ToTable("NextSteps");
                 });
 
-            modelBuilder.Entity("CaseTracker.DataAccessLayer.Models.Notifications", b =>
+            modelBuilder.Entity("CaseTracker.DataAccessLayer.Models.Notification", b =>
                 {
                     b.Property<int>("NotificationId")
                         .ValueGeneratedOnAdd()
@@ -175,7 +177,7 @@ namespace CaseTracker.DataAccessLayer.Migrations
                     b.Property<string>("Body")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ConsultationId")
+                    b.Property<string>("ConsultationsId")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("IsSeen")
@@ -189,7 +191,7 @@ namespace CaseTracker.DataAccessLayer.Migrations
 
                     b.HasKey("NotificationId");
 
-                    b.ToTable("Notification");
+                    b.ToTable("Notifications");
                 });
 
             modelBuilder.Entity("CaseTracker.DataAccessLayer.Models.Users", b =>

@@ -20,33 +20,43 @@ namespace CaseTracker.Controllers
         }
 
         [HttpGet("GetNotitifications")]
-        public async Task<IActionResult> GetAllNotifications()
+        public async Task<IActionResult> GetAllNotifications(string? consultationId)
         {
             try
             {
-                var notifications = await _context.Notifications
-                    .Select(n => new NotificationResponse
-                    {
-                        NotificationId = n.NotificationId,
-                        Title = n.Title,
-                        Body = n.Body,
-                        NotificationDate = n.NotificationDate.ToString("dd-MM-yyyy"),
-                        IsSeen = n.IsSeen
-                    })
-                    .ToListAsync();
-                return Ok(new { Message = "Notifications Loaded Successfully",  notifications });
+                //var ConsultationId = await _context.Notification
+                //    .Where(n => n.ConsultationId == consultationId)
+                //    .Select(s => s.Id)
+                //    .FirstOrDefaultAsync();
+
+
+                var notifications = await _context.Notification
+                      .Where(n => n.ConsultationId == consultationId)
+                      .Select(n => new NotificationResponse
+                      {
+                          NotificationId = n.NotificationId,
+                          Title = n.Title,
+                          Body = n.Body,
+                          NotificationDate = n.NotificationDate.ToString("dd-MM-yyyy"),
+                          IsSeen = n.IsSeen,
+                          ConsultationId = n.ConsultationId
+                      })
+                      .ToListAsync();
+                return Ok(new { Message = "Notifications Loaded Successfully", notifications });
             }
             catch (Exception ex)
             {
-               
+
                 return StatusCode(500, $"Internal server error: {ex.Message}");
             }
         }
 
+
+
         [HttpPost("mark-as-seen/{id}")]
         public async Task<IActionResult> MarkAsSeen(int NotificationId)
         {
-            var notification = await _context.Notifications.FindAsync(NotificationId);
+            var notification = await _context.Notification.FindAsync(NotificationId);
             if (notification == null) return NotFound("Error");
 
             notification.IsSeen = true;

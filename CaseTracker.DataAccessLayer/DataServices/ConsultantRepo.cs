@@ -50,7 +50,19 @@ namespace CaseTracker.DataAccessLayer.DataServices
                 .Consultants
                
                 .Where(x => x.ConsultationId != null)
+                .OrderByDescending(x => x.Id)
                 .ToListAsync();
+        }
+        public async Task<Consultant?> FindByConsultationId(string consultationId)
+        {
+            return await _dbContext.Consultants
+           .Where(c => c.ConsultationId == consultationId)
+           .FirstOrDefaultAsync();
+        }
+        public async Task<AttachmentModel?> GetByAttachmentFileName(string fileName)
+        {
+            return await _dbContext.AttachmentModels
+                .FirstOrDefaultAsync(a => a.AttachmentFileName == fileName);
         }
 
     }

@@ -1,5 +1,6 @@
 C:\Users\CentricTech\Source\Repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\appsettings.Development.json
 C:\Users\CentricTech\Source\Repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\appsettings.json
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\CaseTracker.staticwebassets.runtime.json
 C:\Users\CentricTech\Source\Repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\CaseTracker.exe
 C:\Users\CentricTech\Source\Repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\CaseTracker.deps.json
 C:\Users\CentricTech\Source\Repos\ConsulatanatApp\CaseTracker\bin\Debug\net6.0\CaseTracker.runtimeconfig.json

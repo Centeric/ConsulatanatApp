@@ -13,5 +13,6 @@ namespace CaseTracker.DataAccessLayer.Responses
         public string? Body { get; set; }
         public string? NotificationDate { get; set; }
         public bool IsSeen { get; set; }
+        public string? ConsultationId { get; set; }
     }
 }

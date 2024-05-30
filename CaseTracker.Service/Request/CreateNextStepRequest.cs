@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 namespace CaseTracker.Service.Request
 {
     public record CreateNextStepRequest(
+        string? ConsultationId,
         int ConsultantId, 
         string? NextStep,
         DateTime NextStepTime)
@@ -19,12 +20,14 @@ namespace CaseTracker.Service.Request
             {
                 ConsultantId = ConsultantId,  
                 NextStep = NextStep,
-                NextStepTime = NextStepTime
+                NextStepTime = NextStepTime,
+               // ConsultationId = ConsultationId,
             };
         }
     }
     public record CreateCommunicationRequest(
         int ConsultantId,
+        string? ConsultationId,
         string? CommunicationUpdate,
         DateTime CommunicationUpdateTime
         )
@@ -35,24 +38,26 @@ namespace CaseTracker.Service.Request
             {
                 ConsultantId = ConsultantId,
                 CommunicationUpdate = CommunicationUpdate,
-                CommunicatioUpdateTime = CommunicationUpdateTime
+                CommunicatioUpdateTime = CommunicationUpdateTime,
+               // ConsultationId = ConsultationId,
             };
         }
     }
     public record CreateAttachmentRequest(
-     // string FileName,
       int ConsultantId,
+      string? ConsultationId,
       IFormFile File
-  )
+     )
     {
         public AttachmentModel ToEntity(string filePath)
         {
             return new AttachmentModel
             {
                 ConsultantId = ConsultantId,
-                AttachmentName = filePath,
+                AttachmentPath = filePath,
+                AttachmentFileName = Path.GetFileNameWithoutExtension(File.FileName),
                 AttachmentType = Path.GetExtension(File.FileName),
-                
+               // ConsultationId = ConsultationId,
                 
             };
         }

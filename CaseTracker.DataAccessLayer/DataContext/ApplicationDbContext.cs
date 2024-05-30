@@ -34,7 +34,8 @@ namespace CaseTracker.DataAccessLayer.DataContext
         public DbSet<CommunicationUpdates> CommunicationUpdates { get; set; }
         public DbSet<AttachmentModel> AttachmentModels { get; set; }
         public DbSet<Users> AuthUsers { get; set; }
-        public DbSet<Notification> Notifications { get; set; }
+     
+        public DbSet<Notifications> Notification { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -45,13 +46,18 @@ namespace CaseTracker.DataAccessLayer.DataContext
 
             modelBuilder.Entity<NextSteps>()
                 .HasKey(ns => ns.NextStepId);  
+
             modelBuilder.Entity<CommunicationUpdates>()
                 .HasKey(cu => cu.CommunicationId);  
 
             modelBuilder.Entity<AttachmentModel>()
                 .HasKey(a => a.AttachmentId);
+
             modelBuilder.Entity<Users>()
                .HasKey(a => a.UserId);
+
+            modelBuilder.Entity<Notifications>()
+                .HasKey(n => n.NotificationId);
 
             modelBuilder.Entity<Consultant>()
                 .HasMany(c => c.NextSteps)
@@ -72,12 +78,18 @@ namespace CaseTracker.DataAccessLayer.DataContext
                 .WithOne(am => am.Consultant)
                 .HasForeignKey(am => am.ConsultantId)
                 .OnDelete(DeleteBehavior.Cascade);
-            modelBuilder.Entity<Notification>()
-       .Property(e => e.NotificationDate)
-       .HasConversion(
-           v => v.ToDateTime(TimeOnly.MinValue),
-           v => DateOnly.FromDateTime(v)        
-       );
+
+            //modelBuilder.Entity<Consultant>()
+            //    .HasMany(c => c.Notifications)
+            //    .WithOne(am => am.Consultant)
+            //    .HasForeignKey(am => am.ConsultantId)
+            //    .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Notifications>()
+              .Property(e => e.NotificationDate)
+              .HasConversion(
+               v => v.ToDateTime(TimeOnly.MinValue),
+               v => DateOnly.FromDateTime(v));
 
         }
 

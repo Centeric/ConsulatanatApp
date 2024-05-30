@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CaseTracker.DataAccessLayer.DataServices
 {
-    public class NotificationRepo : Repository<Notification>, INotificationRepo
+    public class NotificationRepo : Repository<Notifications>, INotificationRepo
     {
         public NotificationRepo(ApplicationDbContext dbContext) : base(dbContext)
         {

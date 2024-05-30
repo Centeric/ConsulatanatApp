@@ -15,8 +15,8 @@ namespace CaseTracker.DataAccessLayer.IDataServices
      
         Task<Consultant?> GetById(string consultationId);
         Task<List<Consultant>> GetAll();
+        Task<Consultant?> FindByConsultationId(string consultationId);
+        Task<AttachmentModel?> GetByAttachmentFileName(string fileName);
         
-
-
     }
 }

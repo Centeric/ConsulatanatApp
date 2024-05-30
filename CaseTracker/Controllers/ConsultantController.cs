@@ -1,13 +1,16 @@
 ﻿using CaseTracker.DataAccessLayer.DataContext;
 using CaseTracker.DataAccessLayer.Models;
 using CaseTracker.DataAccessLayer.Responses;
+
 using CaseTracker.Service.DataLogics.IServices;
 using CaseTracker.Service.DataLogics.Services;
 using CaseTracker.Service.Request;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection.Metadata;
 
 namespace CaseTracker.Controllers
 {
@@ -28,7 +31,7 @@ namespace CaseTracker.Controllers
         [HttpPost("AddNewConsultant")]
         public async Task<IActionResult> Add(CreateConsultantRequest consultantRequest)
         {
-            return Ok(await _consultantService.Add(consultantRequest));
+           return Ok(await _consultantService.Add(consultantRequest));
         }
         [HttpPost("AddNextSteps")]
         public async Task<IActionResult> CreateNextStep(CreateNextStepRequest request)
@@ -49,9 +52,9 @@ namespace CaseTracker.Controllers
             return Ok(await _consultantService.CreateCommunicationUpdate(request));
         }
         [HttpPost("AddAttachments")]
-        public async Task<IActionResult> AddAttachments([FromForm] int consultantId,  IFormFile file)
+        public async Task<IActionResult> AddAttachments([FromForm] int consultantId,  IFormFile file, string? ConsultationId)
         {
-            var request = new CreateAttachmentRequest(consultantId, file);
+            var request = new CreateAttachmentRequest(consultantId, ConsultationId, file);
             return Ok(await _consultantService.AddAttachment(request));
         }
         [HttpPut("UpdateConsultant")]
@@ -107,6 +110,37 @@ namespace CaseTracker.Controllers
             {
                 return BadRequest("Error while updating status");
             }
+        }
+        [HttpGet("GetAttachments")]
+        public async Task<IActionResult> GetAttachment(string fileName)
+        {
+            try
+            {
+                var fileDownloadDTO = await _consultantService.GetByAttachmentPath(fileName);
+                return File(fileDownloadDTO.FileStream!, fileDownloadDTO.FileName!);
+            }
+            catch (FileNotFoundException ex)
+            {
+                return NotFound(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, "An error occurred while trying to download the file: " + ex.Message);
+            }
+        }
+        [HttpGet("DownloadFile")]
+        public async Task<IActionResult> DownloadFile(string fileName)
+        {
+            var filepath = Path.Combine(Directory.GetCurrentDirectory(), "www.root\\uploads\\TextFile", fileName);
+
+            var provider = new FileExtensionContentTypeProvider();
+            if (!provider.TryGetContentType(filepath, out var contenttype))
+            {
+                contenttype = "application/octet-stream";
+            }
+
+            var bytes = await System.IO.File.ReadAllBytesAsync(filepath);
+            return File(bytes, contenttype, Path.GetFileName(filepath));
         }
     }
 }

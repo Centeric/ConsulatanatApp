@@ -20,6 +20,7 @@ namespace CaseTracker.Service.Common
         public const string EnterData="Please Enter Data";
         public const string NotificationLoad="Notification Load Successfully";
         public const string NotificationL = "Notification Load Successfully";
+        public const string NotAllowed = "ConsultationId is not Valid";
 
 
         public class _User

@@ -27,13 +27,19 @@ namespace CaseTracker.DataAccessLayer.Responses
         public string? PhoneNumber { get; set; }
         public List<string> NextSteps { get; set; } = new List<string>();
         public List<CommunicationUpdateDTO> CommunicationUpdates { get; set; } = new List<CommunicationUpdateDTO>();
-        public List<string> AttachmentName { get; set; } = new List<string>();
-        public string? FileName { get; set; }
+        public List<AttachmentDTO> Attachments { get; set; } = new List<AttachmentDTO>();
+      
     }
     public class CommunicationUpdateDTO
     {
         public int CommunicationId { get; set; }
         public string? CommunicationUpdate { get; set; }
         public DateTime CommunicationUpdateTime { get; set; }
+    }
+    public class AttachmentDTO
+    {
+        
+        public string? AttachmentPath { get; set; }
+        public string? AttachmentFileName { get; set;}
     }
 }

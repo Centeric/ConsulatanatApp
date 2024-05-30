@@ -9,6 +9,7 @@ using CaseTracker.Service.Request;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using static System.Net.Mime.MediaTypeNames;
@@ -37,29 +38,22 @@ namespace CaseTracker.Service.DataLogics.Services
         }
         public async Task<Result> Add(CreateConsultantRequest consultant)
         {
+            var existingConsultant = await _consultantRepo.FindByConsultationId(consultant.ConsultationId!);
+            if (existingConsultant != null)
+            {
+                return Result.Failure("Consultant already exists.");
+            }
+
+            if (string.IsNullOrEmpty(consultant.ConsultationId)) return Result.Failure(Constants.NotAllowed);
             int response = await _consultantRepo.Add(consultant.ToEntity());
-            await _notificationService.CreateNotificationAsync("New Consultant", "A new Consultant has been created.");
+          //  await _notificationService.CreateNotificationAsync("New Consultant", "A new Consultant has been created.");
 
             return response != 0
                 ? Result.Success(Constants.Added, consultant)
                 : Result.Failure(Constants.NotAdded)!;
         }
 
-        //public async Task<Result> Add(CreateConsultantRequest consultantRequest)
-        //{
-        //    Consultant consultant = consultantRequest.ToEntity();
-        //    consultant.ProcessStatus = Constants._ConsultantStatus.StatusPending; 
-
-        //    int response = await _consultantRepo.Add(consultant);
-        //    if (response != 0)
-        //    {
-        //        return Result.Success(Constants.Added, consultant);
-        //    }
-        //    else
-        //    {
-        //        return Result.Failure(Constants.NotAdded);
-        //    }
-        //}
+   
 
         public async Task<Result> UpdateConsultant(UpdateConsultantRequest request)
         {
@@ -155,8 +149,12 @@ namespace CaseTracker.Service.DataLogics.Services
                     CommunicationUpdate = cu.CommunicationUpdate,
 
                 }).ToList()!,
-                AttachmentName = consultant.AttachmentModels.Select(x => x.AttachmentName).ToList()!,
-                FileName = "Contracts"
+               Attachments = consultant.AttachmentModels.Select(x => new AttachmentDTO 
+                {  
+                  AttachmentPath = x.AttachmentPath, 
+                  AttachmentFileName = x.AttachmentFileName,
+                }).ToList()!,
+               
                 
             };
             return Result.Success(Constants.DataLoaded, response);
@@ -194,7 +192,7 @@ namespace CaseTracker.Service.DataLogics.Services
             }
 
            
-            await _notificationService.CreateNotificationAsync("New NextStep", "A new NextStep has been created.");
+           await _notificationService.CreateNotificationAsync(request.ConsultationId, "New NextStep", "A new NextStep has been created.");
 
          
             return Result.Success(Constants.Added, addResult);
@@ -212,7 +210,7 @@ namespace CaseTracker.Service.DataLogics.Services
             }
 
 
-            await _notificationService.CreateNotificationAsync("New CommunicationUpdates", "A new CommunicationUpdates has been created.");
+           await _notificationService.CreateNotificationAsync(request.ConsultationId,"New CommunicationUpdates", "A new CommunicationUpdates has been created.");
 
 
             return Result.Success(Constants.Added, addResult);
@@ -251,20 +249,22 @@ namespace CaseTracker.Service.DataLogics.Services
                 var attachment = new AttachmentModel
                 {
                     ConsultantId = request.ConsultantId,
-                    AttachmentName = filePath,  
-                    AttachmentType = Path.GetExtension(request.File.FileName)
+                    AttachmentPath = filePath,
+                    AttachmentFileName = Path.GetFileNameWithoutExtension(request.File.FileName),
+                    AttachmentType = Path.GetExtension(request.File.FileName),
+                   // ConsultationId = request.ConsultationId
                 };
 
                
                 await _attachmentRepo.AddAsync(attachment);
 
-              
-                await _notificationService.CreateNotificationAsync(
+
+                await _notificationService.CreateNotificationAsync(request.ConsultationId,
                     "Attachment Added",
                     $"A new Attachment '{request.File.FileName}' has been added."
                 );
 
-               
+
                 return Result.Success("Added", filePath);
             }
             catch (Exception ex)
@@ -272,6 +272,22 @@ namespace CaseTracker.Service.DataLogics.Services
                
                 return Result.Failure("Error", ex.Message);
             }
+        }
+        public async Task<FileDownloadDTO> GetByAttachmentPath(string fileName)
+        {
+            var attachment = await _consultantRepo.GetByAttachmentFileName(fileName);
+            if (attachment == null)
+            {
+                throw new FileNotFoundException("File not found.");
+            }
+
+            var stream = new FileStream(attachment.AttachmentPath, FileMode.Open, FileAccess.Read);
+            return new FileDownloadDTO
+            {
+                FileStream = stream,
+                FileName = attachment.AttachmentFileName,
+              
+            };
         }
 
     }

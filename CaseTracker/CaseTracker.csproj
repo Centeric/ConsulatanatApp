@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="www.root\uploads\TextForm\" />
+    <Folder Include="wwwroot\Uploads\files\" />
   </ItemGroup>
 
 </Project>

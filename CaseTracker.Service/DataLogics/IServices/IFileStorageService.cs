@@ -10,5 +10,6 @@ namespace CaseTracker.Service.DataLogics.IServices
     public interface IFileStorageService
     {
         Task<string> SaveFileAsync(IFormFile file);
+        Task<Stream> GetFileAsync(string fileName);
     }
 }
