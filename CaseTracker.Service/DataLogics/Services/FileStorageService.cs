@@ -38,7 +38,7 @@ namespace CaseTracker.Service.DataLogics.Services
             {
                 Directory.CreateDirectory(_storagePath);
             }
-            // var uniqueFileName = $"{Guid.NewGuid()}{fileExtension}";
+          
             var filePath = Path.Combine(_storagePath, filename);
 
 

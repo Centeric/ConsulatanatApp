@@ -62,7 +62,16 @@ namespace CaseTracker.Service.Request
             };
         }
     }
+    public class CreateAttachmentDTO 
+    {
+        public int ConsultantId { get; set; }
+        public string? ConsultationId { get; set; }
+       
+        public List<IFormFile> Files { get; set; }
+     
+    }
+
 }
 
-    
+
 

@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CaseTracker.DataAccessLayer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240530201150_NextStepCmmunications")]
-    partial class NextStepCmmunications
+    [Migration("20240531162615_ConsultanttableChangesDate")]
+    partial class ConsultanttableChangesDate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,9 +44,6 @@ namespace CaseTracker.DataAccessLayer.Migrations
                     b.Property<int>("ConsultantId")
                         .HasColumnType("int");
 
-                    b.Property<string>("ConsultationsId")
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("AttachmentId");
 
                     b.HasIndex("ConsultantId");
@@ -70,9 +67,6 @@ namespace CaseTracker.DataAccessLayer.Migrations
 
                     b.Property<int>("ConsultantId")
                         .HasColumnType("int");
-
-                    b.Property<string>("ConsultationsId")
-                        .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CommunicationId");
 
@@ -103,6 +97,9 @@ namespace CaseTracker.DataAccessLayer.Migrations
 
                     b.Property<int?>("ConsultationStatus")
                         .HasColumnType("int");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<DateTime>("DateOfTransfer")
                         .HasColumnType("datetime2");
@@ -149,9 +146,6 @@ namespace CaseTracker.DataAccessLayer.Migrations
 
                     b.Property<int>("ConsultantId")
                         .HasColumnType("int");
-
-                    b.Property<string>("ConsultationsId")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("NextStep")
                         .HasColumnType("nvarchar(max)");

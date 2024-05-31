@@ -14,7 +14,7 @@ namespace CaseTracker.DataAccessLayer.Models
             public DateTime NextStepTime { get; set; }
          
      
-        public int ConsultantId { get; set; }
+             public int ConsultantId { get; set; }
              [ForeignKey("ConsultantId")]
             public Consultant? Consultant { get; set; }
 

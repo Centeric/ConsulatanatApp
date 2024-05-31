@@ -17,11 +17,15 @@ namespace CaseTracker.Service.DataLogics.IServices
         Task<Result> CreateNextStep(CreateNextStepRequest request);
         Task<Result> CreateCommunicationUpdate(CreateCommunicationRequest request);
         Task<Result> GetConsultant();
-        Task<Result> AddAttachment(CreateAttachmentRequest request);
+        Task<Result> GetConsultantDashboard();
+        Task<Result> GetUpcomingConsultant();
+        Task<Result> GetConsultantByStatus();
+        //  Task<Result> AddAttachment(List<CreateAttachmentRequest> requests);
+        Task<Result> AddAttachment(CreateAttachmentDTO dto);
         Task<Result> DeleteNextStep(int NextStepId);
         Task<Result> DeleteCommunication(int CommunicationId);
         Task<Result> DeleteAttachment(int AttachmentId);
         Task<Result> UpdateStatus(UpdateStatusRequest request);
-        Task<FileDownloadDTO> GetByAttachmentPath(string fileName);
+      
     }
 }

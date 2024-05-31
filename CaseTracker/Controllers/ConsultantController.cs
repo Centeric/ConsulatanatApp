@@ -5,6 +5,7 @@ using CaseTracker.DataAccessLayer.Responses;
 using CaseTracker.Service.DataLogics.IServices;
 using CaseTracker.Service.DataLogics.Services;
 using CaseTracker.Service.Request;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -26,13 +27,14 @@ namespace CaseTracker.Controllers
             _consultantService = consultantService;
           
         }
-      
-  
+
+        [AllowAnonymous]
         [HttpPost("AddNewConsultant")]
         public async Task<IActionResult> Add(CreateConsultantRequest consultantRequest)
         {
            return Ok(await _consultantService.Add(consultantRequest));
         }
+        [AllowAnonymous]
         [HttpPost("AddNextSteps")]
         public async Task<IActionResult> CreateNextStep(CreateNextStepRequest request)
         {
@@ -42,6 +44,7 @@ namespace CaseTracker.Controllers
             }
             return Ok(await _consultantService.CreateNextStep(request));
         }
+        [AllowAnonymous]
         [HttpPost("AddCommunicationUpdates")]
         public async Task<IActionResult> CreateCommunication(CreateCommunicationRequest request)
         {
@@ -51,48 +54,65 @@ namespace CaseTracker.Controllers
             }
             return Ok(await _consultantService.CreateCommunicationUpdate(request));
         }
+
+        //[HttpPost("AddAttachments")]
+        //public async Task<IActionResult> AddAttachments([FromForm] List<IFormFile> files, string? consultationId, int consultantId)
+        //{
+        //    var requests = files.Select(file => new CreateAttachmentRequest(consultantId, consultationId, file)).ToList();
+        //    return Ok(await _consultantService.AddAttachment(requests));
+        //}
+        [AllowAnonymous]
         [HttpPost("AddAttachments")]
-        public async Task<IActionResult> AddAttachments([FromForm] int consultantId,  IFormFile file, string? ConsultationId)
+        public async Task<IActionResult> AddAttachments([FromForm] CreateAttachmentDTO dto)
         {
-            var request = new CreateAttachmentRequest(consultantId, ConsultationId, file);
-            return Ok(await _consultantService.AddAttachment(request));
+            return Ok(await _consultantService.AddAttachment(dto));
         }
+
+
+        [AllowAnonymous]
         [HttpPut("UpdateConsultant")]
         public async Task<IActionResult> Update(UpdateConsultantRequest request)
         {
             return Ok(await _consultantService.UpdateConsultant(request));
         }
+        [AllowAnonymous]
         [HttpDelete("Delete")]
         public async Task<IActionResult> DeleteById(int id)
         {
             return Ok(await _consultantService.Delete(id));
         }
+        [AllowAnonymous]
         [HttpGet("GetById")]
         public async Task<IActionResult> GetById(string consultantId)
         {
             Result? response = await _consultantService.GetById(consultantId);
             return Ok(response);
         }
+        [AllowAnonymous]
         [HttpGet("GetAllConsultant")]
         public async Task<IActionResult> GetAllConsultant()
         {
             return Ok(await _consultantService.GetConsultant());
         }
+        [AllowAnonymous]
         [HttpDelete("DeleteNextSteps")]
         public async Task<IActionResult> DeleteNextSteps(int NextStepId)
         {
             return Ok(await _consultantService.DeleteNextStep(NextStepId));
         }
+        [AllowAnonymous]
         [HttpDelete("DeleteCommunicationUpdates")]
         public async Task<IActionResult> DeleteCommunicationUpdates(int CommunicationId)
         {
             return Ok(await _consultantService.DeleteCommunication(CommunicationId));
         }
+        [AllowAnonymous]
         [HttpDelete("DeleteAttachments")]
         public async Task<IActionResult> DeleteAttachments(int AttachmentId)
         {
             return Ok(await _consultantService.DeleteAttachment(AttachmentId));
         }
+        [AllowAnonymous]
         [HttpPut("UpdateStatusByConsultationId")]
         public async Task<IActionResult> UpdateStatusByConsultationId([FromBody] UpdateStatusRequest request)
         {
@@ -111,28 +131,13 @@ namespace CaseTracker.Controllers
                 return BadRequest("Error while updating status");
             }
         }
-        [HttpGet("GetAttachments")]
-        public async Task<IActionResult> GetAttachment(string fileName)
-        {
-            try
-            {
-                var fileDownloadDTO = await _consultantService.GetByAttachmentPath(fileName);
-                return File(fileDownloadDTO.FileStream!, fileDownloadDTO.FileName!);
-            }
-            catch (FileNotFoundException ex)
-            {
-                return NotFound(ex.Message);
-            }
-            catch (Exception ex)
-            {
-                return StatusCode(500, "An error occurred while trying to download the file: " + ex.Message);
-            }
-        }
+
+        [AllowAnonymous]
         [HttpGet("DownloadFile")]
         public async Task<IActionResult> DownloadFile(string fileName)
         {
-            var filepath = Path.Combine(Directory.GetCurrentDirectory(), "www.root\\uploads\\TextFile", fileName);
-
+            var filepath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Uploads\\files", fileName);
+            
             var provider = new FileExtensionContentTypeProvider();
             if (!provider.TryGetContentType(filepath, out var contenttype))
             {
@@ -140,7 +145,26 @@ namespace CaseTracker.Controllers
             }
 
             var bytes = await System.IO.File.ReadAllBytesAsync(filepath);
+            Console.WriteLine(File(bytes, contenttype, Path.GetFileName(filepath)));
             return File(bytes, contenttype, Path.GetFileName(filepath));
+        }
+        [AllowAnonymous]
+        [HttpGet("GetAllConsultantDashboard")]
+        public async Task<IActionResult> GetAllConsultantDashboard()
+        {
+            return Ok(await _consultantService.GetConsultantDashboard());
+        }
+        [AllowAnonymous]
+        [HttpGet("GetUpcomingConsultantDashboard")]
+        public async Task<IActionResult> GetUpcomingConsultantDashboard()
+        {
+            return Ok(await _consultantService.GetUpcomingConsultant());
+        }
+        [AllowAnonymous]
+        [HttpGet("GetAllConsultantStatusDashboard")]
+        public async Task<IActionResult> GetAllConsultantStatusDashboard()
+        {
+            return Ok(await _consultantService.GetConsultantByStatus());
         }
     }
 }

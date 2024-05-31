@@ -46,7 +46,7 @@ namespace CaseTracker.Service.DataLogics.Services
 
             if (string.IsNullOrEmpty(consultant.ConsultationId)) return Result.Failure(Constants.NotAllowed);
             int response = await _consultantRepo.Add(consultant.ToEntity());
-          //  await _notificationService.CreateNotificationAsync("New Consultant", "A new Consultant has been created.");
+     
 
             return response != 0
                 ? Result.Success(Constants.Added, consultant)
@@ -215,80 +215,141 @@ namespace CaseTracker.Service.DataLogics.Services
 
             return Result.Success(Constants.Added, addResult);
         }
-        //public async Task<Result> AddAttachment(CreateAttachmentRequest request)
+
+       
+        //public async Task<Result> AddAttachment(List<CreateAttachmentRequest> requests) // Is Ma List of Files
         //{
+        //    var addedAttachments = new List<AttachmentModel>();
+
         //    try
         //    {
-               
-        //        var filePath = await _fileStorageService.SaveFileAsync(request.File);
+        //        string id = requests[0].ConsultationId;
+        //        string fileName = requests[0].File.FileName;
 
-             
-        //        var attachment = new AttachmentModel
+        //        foreach (var request in requests)
         //        {
-        //            ConsultantId = request.ConsultantId,
-        //            AttachmentName = filePath,
-        //            AttachmentType = Path.GetExtension(request.File.FileName)
-        //        };
+        //            var filePath = await _fileStorageService.SaveFileAsync(request.File);
 
-        //        await _attachmentRepo.AddAsync(attachment);
-        //        return Result.Success("Added", filePath); 
+        //            var attachment = new AttachmentModel
+        //            {
+        //                ConsultantId = request.ConsultantId,
+        //                AttachmentPath = filePath,
+        //                AttachmentFileName = Path.GetFileNameWithoutExtension(request.File.FileName),
+        //                AttachmentType = Path.GetExtension(request.File.FileName),
+        //                // ConsultationId = request.ConsultationId
+        //            };
+
+        //            await _attachmentRepo.AddAsync(attachment);
+        //            addedAttachments.Add(attachment);
+
+
+        //        }
+        //        await _notificationService.CreateNotificationAsync(id,
+        //               "Attachment Added",
+        //               $"A new Attachment '{fileName}' has been added."
+        //           );
+
+        //        return Result.Success("Added", addedAttachments.Select(a => a.AttachmentPath).ToList());
         //    }
         //    catch (Exception ex)
         //    {
         //        return Result.Failure("Error", ex.Message);
         //    }
         //}
-        public async Task<Result> AddAttachment(CreateAttachmentRequest request)
+
+ 
+        public async Task<Result> GetConsultantDashboard()
         {
+            var consultant = await _consultantRepo.GetAllConsultantForDashboard();
+            if (consultant == null) return Result.Failure(Constants.Error);
+
+            var consultantList = consultant.Select(item => new ConsultantGetDashboardResponse
+            {
+              ConsultationId = item.ConsultationId,
+              ClientName = item.ClientName,
+              TimeShareName = item.TimeShareName,
+              ProcessStatus = item.ProcessStatus,
+            }).ToList();
+
+            return Result.Success(Constants.DataLoaded, consultantList);
+        }
+        public async Task<Result> GetUpcomingConsultant()
+        {
+            var consultant = await _consultantRepo.GetAllConsultantForUpcoming();
+            if (consultant == null) return Result.Failure(Constants.Error);
+
+            var consultantList = consultant.Select(item => new ConsultantGetDashboardResponse
+            {
+                ConsultationId = item.ConsultationId,
+                ClientName = item.ClientName,
+                TimeShareName = item.TimeShareName,
+                DeadlineForDocumentSubmission = item.DeadlineForDocumentSubmission,
+            }).ToList();
+
+            return Result.Success(Constants.DataLoaded, consultantList);
+        }
+        public async Task<Result> GetConsultantByStatus()
+        {
+            var consultantStatusCounts = await _consultantRepo.GetAllConsultantForStatus();
+            if (consultantStatusCounts == null || !consultantStatusCounts.Any())
+                return Result.Failure(Constants.Error);
+
+            var totalCount = consultantStatusCounts.Sum(x => x.Count);
+
+            var response = new ConsultantGetStatusResponse
+            {
+                StatusCounts = consultantStatusCounts,
+                TotalCount = totalCount
+            };
+
+            return Result.Success(Constants.DataLoaded, response);
+        }
+        public async Task<Result> AddAttachment(CreateAttachmentDTO dto)
+        {
+            var addedAttachments = new List<AttachmentModel>();
+            var attachmentFilenames = new List<string>();
+
             try
             {
-               
-                var filePath = await _fileStorageService.SaveFileAsync(request.File);
-
-             
-                var attachment = new AttachmentModel
+                foreach (var file in dto.Files)
                 {
-                    ConsultantId = request.ConsultantId,
-                    AttachmentPath = filePath,
-                    AttachmentFileName = Path.GetFileNameWithoutExtension(request.File.FileName),
-                    AttachmentType = Path.GetExtension(request.File.FileName),
-                   // ConsultationId = request.ConsultationId
-                };
+                    var filePath = await _fileStorageService.SaveFileAsync(file);
 
-               
-                await _attachmentRepo.AddAsync(attachment);
+                    var attachment = new AttachmentModel
+                    {
+                        ConsultantId = dto.ConsultantId,
+                        AttachmentPath = filePath,
+                        AttachmentFileName = Path.GetFileNameWithoutExtension(file.FileName),
+                        AttachmentType = Path.GetExtension(file.FileName),
+                       
+                    };
 
+                    await _attachmentRepo.AddAsync(attachment);
+                    addedAttachments.Add(attachment);
 
-                await _notificationService.CreateNotificationAsync(request.ConsultationId,
-                    "Attachment Added",
-                    $"A new Attachment '{request.File.FileName}' has been added."
-                );
+                    attachmentFilenames.Add(file.FileName);
+                }
 
+              
+                if (!string.IsNullOrEmpty(dto.ConsultationId))
+                {
+                    var filenames = string.Join(", ", attachmentFilenames);
 
-                return Result.Success("Added", filePath);
+                    await _notificationService.CreateNotificationAsync(
+                        dto.ConsultationId,
+                        "Attachments Added",
+                        $"New attachments have been added: {filenames}"
+                    );
+                }
+
+                return Result.Success("Added", addedAttachments.Select(a => a.AttachmentPath).ToList());
             }
             catch (Exception ex)
             {
-               
                 return Result.Failure("Error", ex.Message);
             }
         }
-        public async Task<FileDownloadDTO> GetByAttachmentPath(string fileName)
-        {
-            var attachment = await _consultantRepo.GetByAttachmentFileName(fileName);
-            if (attachment == null)
-            {
-                throw new FileNotFoundException("File not found.");
-            }
 
-            var stream = new FileStream(attachment.AttachmentPath, FileMode.Open, FileAccess.Read);
-            return new FileDownloadDTO
-            {
-                FileStream = stream,
-                FileName = attachment.AttachmentFileName,
-              
-            };
-        }
 
     }
 }

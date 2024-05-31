@@ -48,10 +48,48 @@ namespace CaseTracker.DataAccessLayer.DataServices
         {
             return await _dbContext
                 .Consultants
-               
+
                 .Where(x => x.ConsultationId != null)
                 .OrderByDescending(x => x.Id)
                 .ToListAsync();
+        }
+        public async Task<List<Consultant>> GetAllConsultantForDashboard()
+        {
+           // var currentDate = DateTime.Now;
+           // var startOfMonth = new DateTime(currentDate.Year, currentDate.Month, 1);
+            return await _dbContext
+                .Consultants
+
+                .Where(x => x.ConsultationId != null)
+                .OrderByDescending(x => x.CreatedDate)
+                .Take(10)
+                .ToListAsync();
+        }
+        public async Task<List<Consultant>> GetAllConsultantForUpcoming()
+        {
+           
+            return await _dbContext
+                .Consultants
+
+                .Where(x => x.ConsultationId != null)
+                .OrderByDescending(x => x.CreatedDate)
+                .Take(10)
+                .ToListAsync();
+        }
+        public async Task<List<ConsultantStatusCount>> GetAllConsultantForStatus()
+        {
+            var consultantStatusCounts = await _dbContext
+                .Consultants
+                .Where(x => x.ConsultationId != null)
+                .GroupBy(x => x.ProcessStatus)
+                .Select(g => new ConsultantStatusCount
+                {
+                    ProcessStatus = g.Key,
+                    Count = g.Count()
+                })
+                .ToListAsync();
+
+            return consultantStatusCounts;
         }
         public async Task<Consultant?> FindByConsultationId(string consultationId)
         {
@@ -59,11 +97,7 @@ namespace CaseTracker.DataAccessLayer.DataServices
            .Where(c => c.ConsultationId == consultationId)
            .FirstOrDefaultAsync();
         }
-        public async Task<AttachmentModel?> GetByAttachmentFileName(string fileName)
-        {
-            return await _dbContext.AttachmentModels
-                .FirstOrDefaultAsync(a => a.AttachmentFileName == fileName);
-        }
+   
 
     }
 }
