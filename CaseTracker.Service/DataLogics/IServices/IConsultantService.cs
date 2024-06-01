@@ -19,7 +19,7 @@ namespace CaseTracker.Service.DataLogics.IServices
         Task<Result> GetConsultant();
         Task<Result> GetConsultantDashboard();
         Task<Result> GetUpcomingConsultant();
-        Task<Result> GetConsultantByStatus();
+        Task<Dictionary<string, object>> GetConsultantByStatus();
         //  Task<Result> AddAttachment(List<CreateAttachmentRequest> requests);
         Task<Result> AddAttachment(CreateAttachmentDTO dto);
         Task<Result> DeleteNextStep(int NextStepId);

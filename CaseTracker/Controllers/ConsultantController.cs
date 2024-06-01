@@ -164,7 +164,8 @@ namespace CaseTracker.Controllers
         [HttpGet("GetAllConsultantStatusDashboard")]
         public async Task<IActionResult> GetAllConsultantStatusDashboard()
         {
-            return Ok(await _consultantService.GetConsultantByStatus());
+            var result = await _consultantService.GetConsultantByStatus();
+            return Ok(result);
         }
     }
 }

@@ -288,22 +288,30 @@ namespace CaseTracker.Service.DataLogics.Services
 
             return Result.Success(Constants.DataLoaded, consultantList);
         }
-        public async Task<Result> GetConsultantByStatus()
+        public async Task<Dictionary<string, object>> GetConsultantByStatus()
         {
             var consultantStatusCounts = await _consultantRepo.GetAllConsultantForStatus();
             if (consultantStatusCounts == null || !consultantStatusCounts.Any())
-                return Result.Failure(Constants.Error);
+                return new Dictionary<string, object>
+        {
+            { "isSuccess", false },
+            { "message", Constants.Error }
+        };
+
             var statusCounts = consultantStatusCounts
-            .ToDictionary(x => x.ProcessStatus!, x => x.Count);
+                .ToDictionary(x => x.ProcessStatus!, x => x.Count);
+
             var totalCount = consultantStatusCounts.Sum(x => x.Count);
 
-            var response = new ConsultantGetStatusResponse
-            {
-                StatusCounts = statusCounts,
-                TotalCount = totalCount
-            };
+           
+            statusCounts["totalCount"] = totalCount;
 
-            return Result.Success(Constants.DataLoaded, response);
+            return new Dictionary<string, object>
+           {
+               { "isSuccess", true },
+                { "message", Constants.DataLoaded },
+               { "data", statusCounts }
+            };
         }
         public async Task<Result> AddAttachment(CreateAttachmentDTO dto)
         {

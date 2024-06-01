@@ -78,7 +78,7 @@ namespace CaseTracker.DataAccessLayer.DataServices
         }
         public async Task<List<ConsultantStatusCount>> GetAllConsultantForStatus()
         {
-            var consultantStatusCounts = await _dbContext
+            return await _dbContext
                 .Consultants
                 .Where(x => x.ConsultationId != null)
                 .GroupBy(x => x.ProcessStatus)
@@ -89,7 +89,7 @@ namespace CaseTracker.DataAccessLayer.DataServices
                 })
                 .ToListAsync();
 
-            return consultantStatusCounts;
+        
         }
         public async Task<Consultant?> FindByConsultationId(string consultationId)
         {
