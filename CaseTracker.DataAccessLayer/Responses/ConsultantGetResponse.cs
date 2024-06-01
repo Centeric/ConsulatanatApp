@@ -37,7 +37,7 @@ namespace CaseTracker.DataAccessLayer.Responses
     {
 
 
-        public List<ConsultantStatusCount> StatusCounts { get; set; }
+        public Dictionary<string, int> StatusCounts { get; set; }
         public int TotalCount { get; set; }
 
     }

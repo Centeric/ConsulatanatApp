@@ -136,7 +136,7 @@ namespace CaseTracker.Controllers
         [HttpGet("DownloadFile")]
         public async Task<IActionResult> DownloadFile(string fileName)
         {
-            var filepath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\Uploads\\files", fileName);
+            var filepath = Path.Combine(Directory.GetCurrentDirectory(), "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker\\wwwroot\\Uploads\\files", fileName);
             
             var provider = new FileExtensionContentTypeProvider();
             if (!provider.TryGetContentType(filepath, out var contenttype))

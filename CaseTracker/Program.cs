@@ -81,7 +81,8 @@ var app = builder.Build();
 app.UseSwagger();
 app.UseSwaggerUI();
 
-
+app.UseHttpsRedirection();
+app.UseStaticFiles();
 
 app.UseRouting();
 
@@ -96,10 +97,9 @@ app.UseEndpoints(endpoints =>
 
 
 
-app.UseHttpsRedirection();
 
 
-app.MapControllers();
+//app.MapControllers();
 
 app.Run();
 

@@ -293,12 +293,13 @@ namespace CaseTracker.Service.DataLogics.Services
             var consultantStatusCounts = await _consultantRepo.GetAllConsultantForStatus();
             if (consultantStatusCounts == null || !consultantStatusCounts.Any())
                 return Result.Failure(Constants.Error);
-
+            var statusCounts = consultantStatusCounts
+            .ToDictionary(x => x.ProcessStatus!, x => x.Count);
             var totalCount = consultantStatusCounts.Sum(x => x.Count);
 
             var response = new ConsultantGetStatusResponse
             {
-                StatusCounts = consultantStatusCounts,
+                StatusCounts = statusCounts,
                 TotalCount = totalCount
             };
 

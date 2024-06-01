@@ -29,20 +29,23 @@ namespace CaseTracker.Service.DataLogics.Services
                 throw new InvalidOperationException("File is empty");
 
             var fileExtension = Path.GetExtension(file.FileName).ToLowerInvariant();
-            if (!new[] { ".pdf", ".doc", ".png", ".jpg", ".docx" }.Contains(fileExtension))
+            if (!new[] { ".pdf", ".doc", ".png", ".jpg", ".docx", ".jpeg" }.Contains(fileExtension))
             {
                 throw new InvalidOperationException("File type not allowed.");
             }
             var filename = Path.GetFileName(file.FileName);
-            if (!Directory.Exists(_storagePath))
+            var uniqueFolderName = Guid.NewGuid().ToString();
+            var folderPath = Path.Combine(_storagePath, uniqueFolderName);
+
+            if (!Directory.Exists(folderPath))
             {
-                Directory.CreateDirectory(_storagePath);
+                Directory.CreateDirectory(folderPath);
             }
-          
-            var filePath = Path.Combine(_storagePath, filename);
+
+            var filePath = Path.Combine(folderPath, filename);
 
 
-            using (var stream = new FileStream(filePath, FileMode.Create))
+           await using (var stream = new FileStream(filePath, FileMode.Create))
             {
                 await file.CopyToAsync(stream);
             }
