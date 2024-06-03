@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\CaseTracker"
   ],
-  "SelectedNode": "\\CaseTracker.sln",
+  "SelectedNode": "\\CaseTracker\\appsettings.json",
   "PreviewInSolutionExplorer": false
 }
