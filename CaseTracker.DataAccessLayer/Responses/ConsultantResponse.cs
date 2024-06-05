@@ -17,15 +17,16 @@ namespace CaseTracker.DataAccessLayer.Responses
         public bool PaymentReceived { get; set; }
         public string? LeadConsultant { get; set; }
         public string? AssistantConsultant { get; set; }
-        public DateTime FilingDate { get; set; }
+        public string? FilingDate { get; set; }
      
-        public DateTime DeadlineForDocumentSubmission { get; set; }
-        public DateTime DateOfTransfer { get; set; }
+        public string? DeadlineForDocumentSubmission { get; set; }
+        public string? DateOfTransfer { get; set; }
         public string? CaseSummary { get; set; }
         public string? ProcessStatus { get; set; }
         public string? Email { get; set; }
         public string? PhoneNumber { get; set; }
         public List<string> NextSteps { get; set; } = new List<string>();
+        public List<NextStepDto> NextStepObject { get; set; } = new List<NextStepDto>();
         public List<CommunicationUpdateDTO> CommunicationUpdates { get; set; } = new List<CommunicationUpdateDTO>();
         public List<AttachmentDTO> Attachments { get; set; } = new List<AttachmentDTO>();
       
@@ -34,12 +35,18 @@ namespace CaseTracker.DataAccessLayer.Responses
     {
         public int CommunicationId { get; set; }
         public string? CommunicationUpdate { get; set; }
-        public DateTime CommunicationUpdateTime { get; set; }
+        public string? CommunicationUpdateTime { get; set; }
     }
     public class AttachmentDTO
     {
-        
+        public int AttachmentId { get; set; }
         public string? AttachmentPath { get; set; }
         public string? AttachmentFileName { get; set;}
+    }
+    public class NextStepDto
+    {
+        public int NextStepId { get; set; }
+        public string? NextStep { get; set; }
+        public string? NextStepTime { get; set; }
     }
 }

@@ -11,7 +11,7 @@ namespace CaseTracker.DataAccessLayer.Models
     {
         public int CommunicationId { get; set; }
         public string? CommunicationUpdate { get; set; }
-        public DateTime CommunicatioUpdateTime { get; set; }
+        public string? CommunicatioUpdateTime { get; set; }
      
        
         public int ConsultantId { get; set; }

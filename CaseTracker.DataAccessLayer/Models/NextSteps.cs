@@ -11,7 +11,7 @@ namespace CaseTracker.DataAccessLayer.Models
         {
             public int NextStepId { get; set; }
             public string? NextStep { get; set; }
-            public DateTime NextStepTime { get; set; }
+            public string? NextStepTime { get; set; }
          
      
              public int ConsultantId { get; set; }

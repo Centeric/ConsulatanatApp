@@ -12,7 +12,7 @@ namespace CaseTracker.Service.Request
         string? ConsultationId,
         int ConsultantId, 
         string? NextStep,
-        DateTime NextStepTime)
+        string? NextStepTime)
     {
         public NextSteps ToEntity()
         {
@@ -29,7 +29,7 @@ namespace CaseTracker.Service.Request
         int ConsultantId,
         string? ConsultationId,
         string? CommunicationUpdate,
-        DateTime CommunicationUpdateTime
+        string? CommunicationUpdateTime
         )
     {
         public CommunicationUpdates ToEntity()

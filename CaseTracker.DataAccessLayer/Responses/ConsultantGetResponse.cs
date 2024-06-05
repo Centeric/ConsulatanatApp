@@ -16,10 +16,10 @@ namespace CaseTracker.DataAccessLayer.Responses
         public string? ClientName { get; set; }
         public int? ConsultationStatus { get; set; }
       
-        public DateTime FilingDate { get; set; }
+        public string? FilingDate { get; set; }
       
       
-        public DateTime DateOfTransfer { get; set; }
+        public string? DateOfTransfer { get; set; }
       
     }
     public class ConsultantGetDashboardResponse
@@ -31,7 +31,7 @@ namespace CaseTracker.DataAccessLayer.Responses
         public string? ClientName { get; set; }
         
         public string? ProcessStatus { get; set; }
-        public DateTime  DeadlineForDocumentSubmission { get; set;}
+        public string? DeadlineForDocumentSubmission { get; set;}
     }
     public class ConsultantGetStatusResponse
     {

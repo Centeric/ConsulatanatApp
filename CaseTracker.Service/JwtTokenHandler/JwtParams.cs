@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Extensions.Configuration;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,16 @@ namespace CaseTracker.Service.JwtTokenHandler
 {
     public class JwtParams:IJwtParams
     {
-        private static readonly string key = "ByYM000OLlMQG6VVVp1OH7Xzyr7gHuw1qvUC5dcGt3SNM";
+        private readonly IConfiguration _configuration;
 
+        public JwtParams(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
         public string GetJwtKey()
         {
-            return key;
+            return _configuration["AuthKey:SecretKey"];
         }
-
     }
     public interface IJwtParams
     {

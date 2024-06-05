@@ -150,12 +150,18 @@ namespace CaseTracker.Service.DataLogics.Services
 
                 }).ToList()!,
                Attachments = consultant.AttachmentModels.Select(x => new AttachmentDTO 
-                {  
+                { 
+                  AttachmentId = x.AttachmentId,
                   AttachmentPath = x.AttachmentPath, 
                   AttachmentFileName = x.AttachmentFileName,
                 }).ToList()!,
-               
-                
+                NextStepObject = consultant.NextSteps.Select(st => new NextStepDto
+                {
+                    NextStepId = st.NextStepId,
+                    NextStep = st.NextStep,
+                    NextStepTime = st.NextStepTime
+                }).ToList(),
+
             };
             return Result.Success(Constants.DataLoaded, response);
         }

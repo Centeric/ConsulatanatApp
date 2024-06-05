@@ -4,6 +4,7 @@ using CaseTracker.DataAccessLayer.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CaseTracker.DataAccessLayer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240605151211_DateTimeToString")]
+    partial class DateTimeToString
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -99,17 +101,17 @@ namespace CaseTracker.DataAccessLayer.Migrations
                     b.Property<DateTime>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("DateOfTransfer")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DateOfTransfer")
+                        .HasColumnType("datetime2");
 
-                    b.Property<string>("DeadlineForDocumentSubmission")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("DeadlineForDocumentSubmission")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FilingDate")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<DateTime>("FilingDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("LeadConsultant")
                         .HasColumnType("nvarchar(max)");
@@ -145,6 +147,9 @@ namespace CaseTracker.DataAccessLayer.Migrations
                     b.Property<int>("ConsultantId")
                         .HasColumnType("int");
 
+                    b.Property<int?>("ConsultantId1")
+                        .HasColumnType("int");
+
                     b.Property<string>("NextStep")
                         .HasColumnType("nvarchar(max)");
 
@@ -154,6 +159,8 @@ namespace CaseTracker.DataAccessLayer.Migrations
                     b.HasKey("NextStepId");
 
                     b.HasIndex("ConsultantId");
+
+                    b.HasIndex("ConsultantId1");
 
                     b.ToTable("NextSteps");
                 });
@@ -247,6 +254,10 @@ namespace CaseTracker.DataAccessLayer.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("CaseTracker.DataAccessLayer.Models.Consultant", null)
+                        .WithMany("NextStepDto")
+                        .HasForeignKey("ConsultantId1");
+
                     b.Navigation("Consultant");
                 });
 
@@ -255,6 +266,8 @@ namespace CaseTracker.DataAccessLayer.Migrations
                     b.Navigation("AttachmentModels");
 
                     b.Navigation("CommunicationUpdates");
+
+                    b.Navigation("NextStepDto");
 
                     b.Navigation("NextSteps");
                 });
