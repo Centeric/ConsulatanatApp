@@ -81,7 +81,7 @@ namespace CaseTracker.Controllers
         {
             return Ok(await _consultantService.Delete(id));
         }
-        [Authorize]
+        
         [HttpGet("GetById")]
         public async Task<IActionResult> GetById(string consultationId)
         {
@@ -120,7 +120,11 @@ namespace CaseTracker.Controllers
             {
                 return BadRequest(ModelState);
             }
-
+            var allowedStatuses = new List<string> { "Pending", "On-Going", "Completed", "Awaiting Return Of Documents" };
+            if (!allowedStatuses.Contains(request.NewStatus!))
+            {
+                return BadRequest(new { message = "Invalid status" });
+            }
             var result = await _consultantService.UpdateStatus(request);
             if (result.IsSuccess)
             {
@@ -128,11 +132,11 @@ namespace CaseTracker.Controllers
             }
             else
             {
-                return BadRequest("Error while updating status");
+                return BadRequest(new { message = "Error while updating status" });
             }
         }
 
-        [Authorize]
+        
         [HttpGet("DownloadFile")]
         public async Task<IActionResult> DownloadFile(string fileName)
         {

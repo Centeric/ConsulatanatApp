@@ -21,7 +21,7 @@ namespace CaseTracker.Service.Common
         public const string NotificationLoad="Notification Load Successfully";
         public const string NotificationL = "Notification Load Successfully";
         public const string NotAllowed = "ConsultationId is not Valid";
-
+        public const string NotAllowedStatus = "Status is not Valid";
 
         public class _User
         {

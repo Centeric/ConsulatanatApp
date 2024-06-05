@@ -17,8 +17,8 @@ namespace CaseTracker.DataAccessLayer.Responses
         public int? ConsultationStatus { get; set; }
       
         public string? FilingDate { get; set; }
-      
-      
+
+        public string? ProcessStatus { get; set; }
         public string? DateOfTransfer { get; set; }
       
     }

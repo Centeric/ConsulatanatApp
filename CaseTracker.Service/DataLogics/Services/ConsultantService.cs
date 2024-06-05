@@ -72,16 +72,20 @@ namespace CaseTracker.Service.DataLogics.Services
                 return Result.Failure(Constants.IdNotFound);
             }
             consultant.ProcessStatus = request.NewStatus;
+          
+            
 
-            try
-            {
-                await _repoConsultant.UpdateAsync(consultant);
-                return Result.Success(Constants.Updated, request);
-            }
-            catch (Exception ex)
-            {
-                return Result.Failure(Constants.Error, ex.Message);
-            }
+
+                try
+                {
+                    await _repoConsultant.UpdateAsync(consultant);
+                    return Result.Success(Constants.Updated, request);
+                }
+                catch (Exception ex)
+                {
+                    return Result.Failure(Constants.Error, ex.Message);
+                }
+          
         }
 
 
@@ -179,6 +183,7 @@ namespace CaseTracker.Service.DataLogics.Services
               ClientName = item.ClientName,
               ConsultationStatus = item.ConsultationStatus,
               FilingDate = item.FilingDate,
+              ProcessStatus = item.ProcessStatus,
               DateOfTransfer = item.DateOfTransfer,
             }).ToList();
 
