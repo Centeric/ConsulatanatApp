@@ -17,7 +17,7 @@ namespace CaseTracker.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [EnableCors("MyCorsPolicy")]
+    [EnableCors("AllowAnyOrigin")]
     [Authorize]
     public class ConsultantController : ControllerBase
     {
@@ -61,7 +61,8 @@ namespace CaseTracker.Controllers
         //    var requests = files.Select(file => new CreateAttachmentRequest(consultantId, consultationId, file)).ToList();
         //    return Ok(await _consultantService.AddAttachment(requests));
         //}
-        [Authorize]
+        // [Authorize]
+        [AllowAnonymous]
         [HttpPost("AddAttachments")]
         public async Task<IActionResult> AddAttachments([FromForm] CreateAttachmentDTO dto)
         {

@@ -116,7 +116,7 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("MyCorsPolicy", builder =>
+    options.AddPolicy("AllowAnyOrigin", builder =>
     {
         builder.AllowAnyOrigin()
             .AllowAnyMethod()
@@ -138,7 +138,7 @@ app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseCors();
+app.UseCors("AllowAnyOrigin");
 app.UseCustomErrorHandling();
 app.UseEndpoints(endpoints =>
 {
