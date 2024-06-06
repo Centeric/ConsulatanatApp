@@ -15,6 +15,7 @@ namespace CaseTracker.DataAccessLayer.Models
         public string? ClientName { get; set; }
         public int? ConsultationStatus { get; set; }
         public string? TimeShareLocation { get; set; }
+        public int? PhoneNumber { get; set; }
         public bool PaymentReceived { get; set; }
         public string? LeadConsultant { get; set; }
         public string? AssistantConsultant { get; set; }
@@ -23,7 +24,6 @@ namespace CaseTracker.DataAccessLayer.Models
         public string? DateOfTransfer { get; set; }
         public string? CaseSummary { get; set; }
         public string? Email { get; set; }
-        public string? PhoneNumber { get; set; }
         public string? ProcessStatus { get; set; }
         public DateTime CreatedDate { get; set; } 
         public virtual ICollection<NextSteps> NextSteps { get; set; } = new List<NextSteps>();

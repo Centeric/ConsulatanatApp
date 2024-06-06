@@ -25,7 +25,7 @@ namespace CaseTracker.Service.Request
         public string? DateOfTransfer { get; set; }
         public string? CaseSummary { get; set; }
         public string? Email { get; set; }
-        public string? PhoneNumber { get; set; }
+        public int? PhoneNumber { get; set; }
       //  public string? ProcessStatus { get; set; }
 
         public Consultant ToEntity()

@@ -24,7 +24,7 @@ namespace CaseTracker.DataAccessLayer.Responses
         public string? CaseSummary { get; set; }
         public string? ProcessStatus { get; set; }
         public string? Email { get; set; }
-        public string? PhoneNumber { get; set; }
+        public int? PhoneNumber { get; set; }
         public List<string> NextSteps { get; set; } = new List<string>();
         public List<NextStepDto> NextStepObject { get; set; } = new List<NextStepDto>();
         public List<CommunicationUpdateDTO> CommunicationUpdates { get; set; } = new List<CommunicationUpdateDTO>();
