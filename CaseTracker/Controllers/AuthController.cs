@@ -9,7 +9,7 @@ namespace CaseTracker.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [EnableCors("MyCorsPolicy")]
+    
     public class AuthController : ControllerBase
     {
         private readonly IAuthService _authService;

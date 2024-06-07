@@ -17,7 +17,7 @@ namespace CaseTracker.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [EnableCors("AllowAnyOrigin")]
+  
     [Authorize]
     public class ConsultantController : ControllerBase
     {
@@ -28,13 +28,13 @@ namespace CaseTracker.Controllers
             _consultantService = consultantService;
           
         }
-        [Authorize]
+    
         [HttpPost("AddNewConsultant")]
         public async Task<IActionResult> Add(CreateConsultantRequest consultantRequest)
         {
            return Ok(await _consultantService.Add(consultantRequest));
         }
-        [Authorize]
+       
         [HttpPost("AddNextSteps")]
         public async Task<IActionResult> CreateNextStep(CreateNextStepRequest request)
         {
@@ -44,7 +44,7 @@ namespace CaseTracker.Controllers
             }
             return Ok(await _consultantService.CreateNextStep(request));
         }
-        [Authorize]
+      
         [HttpPost("AddCommunicationUpdates")]
         public async Task<IActionResult> CreateCommunication(CreateCommunicationRequest request)
         {
@@ -62,7 +62,7 @@ namespace CaseTracker.Controllers
         //    return Ok(await _consultantService.AddAttachment(requests));
         //}
         // [Authorize]
-        [AllowAnonymous]
+     
         [HttpPost("AddAttachments")]
         public async Task<IActionResult> AddAttachments([FromForm] CreateAttachmentDTO dto)
         {
@@ -70,13 +70,13 @@ namespace CaseTracker.Controllers
         }
 
 
-        [Authorize]
+       
         [HttpPut("UpdateConsultant")]
         public async Task<IActionResult> Update(UpdateConsultantRequest request)
         {
             return Ok(await _consultantService.UpdateConsultant(request));
         }
-        [Authorize]
+       
         [HttpDelete("Delete")]
         public async Task<IActionResult> DeleteById(int id)
         {
@@ -89,31 +89,31 @@ namespace CaseTracker.Controllers
             Result? response = await _consultantService.GetById(consultationId);
             return Ok(response);
         }
-        [Authorize]
+       
         [HttpGet("GetAllConsultant")]
         public async Task<IActionResult> GetAllConsultant()
         {
             return Ok(await _consultantService.GetConsultant());
         }
-        [Authorize]
+       
         [HttpDelete("DeleteNextSteps")]
         public async Task<IActionResult> DeleteNextSteps(int NextStepId)
         {
             return Ok(await _consultantService.DeleteNextStep(NextStepId));
         }
-        [Authorize]
+      
         [HttpDelete("DeleteCommunicationUpdates")]
         public async Task<IActionResult> DeleteCommunicationUpdates(int CommunicationId)
         {
             return Ok(await _consultantService.DeleteCommunication(CommunicationId));
         }
-        [Authorize]
+       
         [HttpDelete("DeleteAttachments")]
         public async Task<IActionResult> DeleteAttachments(int AttachmentId)
         {
             return Ok(await _consultantService.DeleteAttachment(AttachmentId));
         }
-        [Authorize]
+      
         [HttpPut("UpdateStatusByConsultationId")]
         public async Task<IActionResult> UpdateStatusByConsultationId([FromBody] UpdateStatusRequest request)
         {
@@ -137,7 +137,7 @@ namespace CaseTracker.Controllers
             }
         }
 
-        
+        [AllowAnonymous]
         [HttpGet("DownloadFile")]
         public async Task<IActionResult> DownloadFile(string fileName)
         {
@@ -153,19 +153,19 @@ namespace CaseTracker.Controllers
             Console.WriteLine(File(bytes, contenttype, Path.GetFileName(filepath)));
             return File(bytes, contenttype, Path.GetFileName(filepath));
         }
-        [Authorize]
+      
         [HttpGet("GetAllConsultantDashboard")]
         public async Task<IActionResult> GetAllConsultantDashboard()
         {
             return Ok(await _consultantService.GetConsultantDashboard());
         }
-        [Authorize]
+        
         [HttpGet("GetUpcomingConsultantDashboard")]
         public async Task<IActionResult> GetUpcomingConsultantDashboard()
         {
             return Ok(await _consultantService.GetUpcomingConsultant());
         }
-        [Authorize]
+        
         [HttpGet("GetAllConsultantStatusDashboard")]
         public async Task<IActionResult> GetAllConsultantStatusDashboard()
         {

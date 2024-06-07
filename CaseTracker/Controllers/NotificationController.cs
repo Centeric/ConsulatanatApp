@@ -24,12 +24,10 @@ namespace CaseTracker.Controllers
         {
             try
             {
-                //var ConsultationId = await _context.Notification
-                //    .Where(n => n.ConsultationId == consultationId)
-                //    .Select(s => s.Id)
-                //    .FirstOrDefaultAsync();
-
-
+             if (string.IsNullOrEmpty(consultationId))
+                {
+                    return BadRequest(new {message="Please Insert Consultation Id"});
+                }
                 var notifications = await _context.Notification
                       .Where(n => n.ConsultationId == consultationId)
                       .Select(n => new NotificationResponse
