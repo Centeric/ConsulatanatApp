@@ -82,7 +82,7 @@ namespace CaseTracker.Controllers
         {
             return Ok(await _consultantService.Delete(id));
         }
-        
+        [AllowAnonymous]
         [HttpGet("GetById")]
         public async Task<IActionResult> GetById(string consultationId)
         {
