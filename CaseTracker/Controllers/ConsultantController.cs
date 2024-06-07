@@ -1,4 +1,5 @@
 ﻿using CaseTracker.DataAccessLayer.DataContext;
+using CaseTracker.DataAccessLayer.IDataServices;
 using CaseTracker.DataAccessLayer.Models;
 using CaseTracker.DataAccessLayer.Responses;
 
@@ -22,11 +23,11 @@ namespace CaseTracker.Controllers
     public class ConsultantController : ControllerBase
     {
         private readonly IConsultantService _consultantService;
-      
-        public ConsultantController(IConsultantService consultantService)
+        private readonly IConsultantRepo _consultantRepo;
+        public ConsultantController(IConsultantService consultantService, IConsultantRepo consultantRepo)
         {
             _consultantService = consultantService;
-          
+            _consultantRepo = consultantRepo;
         }
     
         [HttpPost("AddNewConsultant")]
@@ -87,6 +88,12 @@ namespace CaseTracker.Controllers
         public async Task<IActionResult> GetById(string consultationId)
         {
             Result? response = await _consultantService.GetById(consultationId);
+          
+            if (response.Data == null)
+                    {
+                return BadRequest(new  { message="The id is Not Found" });
+
+            }
             return Ok(response);
         }
        

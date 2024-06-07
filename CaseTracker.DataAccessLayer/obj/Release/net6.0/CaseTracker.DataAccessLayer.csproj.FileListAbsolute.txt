@@ -12,3 +12,17 @@ C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker.DataAccessLayer\obj\Rele
 C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker.DataAccessLayer\obj\Release\net6.0\CaseTracker.DataAccessLayer.pdb
 C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker.DataAccessLayer\obj\Release\net6.0\CaseTracker.DataAccessLayer.genruntimeconfig.cache
 C:\Users\Indus\Source\Repos\ConsulatanatApp\CaseTracker.DataAccessLayer\obj\Release\net6.0\ref\CaseTracker.DataAccessLayer.dll
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\CaseTracker.DataAccessLayer\bin\Release\net6.0\CaseTracker.DataAccessLayer.deps.json
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\CaseTracker.DataAccessLayer\bin\Release\net6.0\CaseTracker.DataAccessLayer.runtimeconfig.json
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\CaseTracker.DataAccessLayer\bin\Release\net6.0\CaseTracker.DataAccessLayer.dll
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\CaseTracker.DataAccessLayer\bin\Release\net6.0\CaseTracker.DataAccessLayer.pdb
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\CaseTracker.DataAccessLayer\obj\Release\net6.0\CaseTracker.DataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\CaseTracker.DataAccessLayer\obj\Release\net6.0\CaseTracker.DataAccessLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\CaseTracker.DataAccessLayer\obj\Release\net6.0\CaseTracker.DataAccessLayer.AssemblyInfoInputs.cache
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\CaseTracker.DataAccessLayer\obj\Release\net6.0\CaseTracker.DataAccessLayer.AssemblyInfo.cs
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\CaseTracker.DataAccessLayer\obj\Release\net6.0\CaseTracker.DataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\CaseTracker.DataAccessLayer\obj\Release\net6.0\CaseTracker.DataAccessLayer.dll
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\CaseTracker.DataAccessLayer\obj\Release\net6.0\refint\CaseTracker.DataAccessLayer.dll
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\CaseTracker.DataAccessLayer\obj\Release\net6.0\CaseTracker.DataAccessLayer.pdb
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\CaseTracker.DataAccessLayer\obj\Release\net6.0\CaseTracker.DataAccessLayer.genruntimeconfig.cache
+C:\Users\CentricTech\Source\Repos\ConsulatanatApp\CaseTracker.DataAccessLayer\obj\Release\net6.0\ref\CaseTracker.DataAccessLayer.dll

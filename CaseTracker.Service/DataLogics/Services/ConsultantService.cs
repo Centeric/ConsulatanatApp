@@ -5,7 +5,7 @@ using CaseTracker.DataAccessLayer.Responses;
 using CaseTracker.Service.Common;
 using CaseTracker.Service.DataLogics.IServices;
 using CaseTracker.Service.Request;
-
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -126,7 +126,10 @@ namespace CaseTracker.Service.DataLogics.Services
                 return Result.Failure(Constants.EnterData);
             }
             Consultant? consultant = await _consultantRepo.GetById(consultationId);
-            if (consultant == null) return Result.Failure(Constants.IdNotFound);
+            if (consultant == null)
+            {
+                return Result.Failure(Constants.IdNotFound);
+            }
 
             ConsultantResponse response = new()
             {
