@@ -33,7 +33,15 @@ namespace CaseTracker.Controllers
         [HttpPost("AddNewConsultant")]
         public async Task<IActionResult> Add(CreateConsultantRequest consultantRequest)
         {
-           return Ok(await _consultantService.Add(consultantRequest));
+            var result = await _consultantService.Add(consultantRequest);
+
+            if (result.IsSuccess)
+            {
+                return Ok(result);
+            }
+
+            return BadRequest(result);
+
         }
        
         [HttpPost("AddNextSteps")]
@@ -148,7 +156,7 @@ namespace CaseTracker.Controllers
         [HttpGet("DownloadFile")]
         public async Task<IActionResult> DownloadFile(string fileName)
         {
-            var filepath = Path.Combine(Directory.GetCurrentDirectory(), "C:\\Users\\CentricTech\\source\\repos\\ConsulatanatApp\\CaseTracker\\wwwroot\\Uploads\\files", fileName);
+            var filepath = Path.Combine(Directory.GetCurrentDirectory(), "C:\\CaseTracker\\wwwroot\\Uploads\\files", fileName);
             
             var provider = new FileExtensionContentTypeProvider();
             if (!provider.TryGetContentType(filepath, out var contenttype))

@@ -10,7 +10,7 @@ namespace CaseTracker.DataAccessLayer.IDataServices
 {
     public interface IConsultantRepo
     {
-        Task<int> Add(Consultant consultant);
+        Task<Consultant> Add(Consultant consultant);
         Task<Consultant?> GetById(int id);
      
         Task<Consultant?> GetById(string consultationId);

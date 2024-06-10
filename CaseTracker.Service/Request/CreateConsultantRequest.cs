@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace CaseTracker.Service.Request
 {
-    public sealed class CreateConsultantRequest
+    public  class CreateConsultantRequest
     {
-          
+       
         public string? ConsultationId { get; set; }
         public string? TimeShareName { get; set; }
         public string? ClientName { get; set; }
@@ -25,7 +25,7 @@ namespace CaseTracker.Service.Request
         public string? DateOfTransfer { get; set; }
         public string? CaseSummary { get; set; }
         public string? Email { get; set; }
-        public int? PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
       //  public string? ProcessStatus { get; set; }
 
         public Consultant ToEntity()

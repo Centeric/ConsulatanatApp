@@ -18,11 +18,13 @@ namespace CaseTracker.DataAccessLayer.DataServices
         {
             _dbContext = dbContext;
         }
-        public async Task<int> Add(Consultant consultant)
+        public async Task<Consultant> Add(Consultant consultant)
         {
-            _ = await _dbContext.Consultants.AddAsync(consultant);
-           return  await _dbContext.SaveChangesAsync();
-            
+             await _dbContext.Consultants.AddAsync(consultant);
+
+             await _dbContext.SaveChangesAsync();
+           
+            return  consultant;
         }
         public async Task<Consultant?> GetById(int id)
         {

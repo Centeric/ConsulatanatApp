@@ -41,15 +41,33 @@ namespace CaseTracker.Service.DataLogics.Services
             var existingConsultant = await _consultantRepo.FindByConsultationId(consultant.ConsultationId!);
             if (existingConsultant != null)
             {
-                return Result.Failure("Consultant already exists.");
+                return Result.Failure("ConsultantId already exists.");
             }
 
             if (string.IsNullOrEmpty(consultant.ConsultationId)) return Result.Failure(Constants.NotAllowed);
-            int response = await _consultantRepo.Add(consultant.ToEntity());
-     
+            var response = await _consultantRepo.Add(consultant.ToEntity());
+            ConsultantResponse result = new()
+            {
+                Id = response.Id,
+                ConsultationId = response.ConsultationId,
+                TimeShareName = response.TimeShareName,
+                ClientName = response.ClientName,
+                ConsultationStatus = response.ConsultationStatus,
+                TimeShareLocation = response.TimeShareLocation,
+                PaymentReceived = response.PaymentReceived,
+                LeadConsultant = response.LeadConsultant,
+                AssistantConsultant = response.AssistantConsultant,
+                FilingDate = response.FilingDate,
+                DeadlineForDocumentSubmission = response.DeadlineForDocumentSubmission,
+                DateOfTransfer = response.DateOfTransfer,
+                CaseSummary = response.CaseSummary,
+                Email = response.Email,
+                PhoneNumber = response.PhoneNumber,
+                ProcessStatus = response.ProcessStatus
+            };
 
-            return response != 0
-                ? Result.Success(Constants.Added, consultant)
+            return result != null
+                ? Result.Success(Constants.Added, response)
                 : Result.Failure(Constants.NotAdded)!;
         }
 

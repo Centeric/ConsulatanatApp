@@ -15,7 +15,7 @@ namespace CaseTracker.DataAccessLayer.Models
         public string? ClientName { get; set; }
         public int? ConsultationStatus { get; set; }
         public string? TimeShareLocation { get; set; }
-        public int? PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
         public bool PaymentReceived { get; set; }
         public string? LeadConsultant { get; set; }
         public string? AssistantConsultant { get; set; }
