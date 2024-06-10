@@ -42,8 +42,10 @@ namespace CaseTracker.DataAccessLayer.DataContext
 
             
             modelBuilder.Entity<Consultant>()
-                .HasKey(c => c.Id);  
-
+                .HasKey(c => c.Id);
+             modelBuilder.Entity<Consultant>()
+             .Property(c => c.CreatedDate)
+              .HasColumnType("datetime");
             modelBuilder.Entity<NextSteps>()
                 .HasKey(ns => ns.NextStepId);  
 

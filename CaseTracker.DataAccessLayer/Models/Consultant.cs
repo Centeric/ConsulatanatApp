@@ -25,7 +25,8 @@ namespace CaseTracker.DataAccessLayer.Models
         public string? CaseSummary { get; set; }
         public string? Email { get; set; }
         public string? ProcessStatus { get; set; }
-        public DateTime CreatedDate { get; set; } 
+        public DateTime CreatedDate { get; set; } =DateTime.Now;
+       
         public virtual ICollection<NextSteps> NextSteps { get; set; } = new List<NextSteps>();
         public virtual ICollection<CommunicationUpdates> CommunicationUpdates { get; set; } = new List<CommunicationUpdates>();
         public virtual ICollection<AttachmentModel> AttachmentModels { get; set; } = new List<AttachmentModel>();

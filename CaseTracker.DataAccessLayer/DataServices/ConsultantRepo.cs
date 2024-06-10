@@ -63,6 +63,7 @@ namespace CaseTracker.DataAccessLayer.DataServices
                 .Consultants
 
                 .Where(x => x.ConsultationId != null)
+
                 .OrderByDescending(x => x.CreatedDate)
                 .Take(10)
                 .ToListAsync();
