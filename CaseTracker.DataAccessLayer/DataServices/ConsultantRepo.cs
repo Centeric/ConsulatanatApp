@@ -70,12 +70,12 @@ namespace CaseTracker.DataAccessLayer.DataServices
         }
         public async Task<List<Consultant>> GetAllConsultantForUpcoming()
         {
-           
+            var validStatuses = new[] { "Pending", "On-Going", "Awaiting Return Of Documents" };
             return await _dbContext
                 .Consultants
 
-                .Where(x => x.ConsultationId != null)
-                .OrderByDescending(x => x.CreatedDate)
+                .Where(x => x.ConsultationId != null && validStatuses.Contains(x.ProcessStatus))
+                .OrderBy(x => x.DeadlineForDocumentSubmission)
                 .Take(10)
                 .ToListAsync();
         }
