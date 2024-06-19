@@ -172,7 +172,7 @@ namespace CaseTracker.Service.DataLogics.Services
                 {
                     CommunicationId = cu.CommunicationId,
                     CommunicationUpdate = cu.CommunicationUpdate,
-
+                    CommunicationUpdateTime = cu.CommunicationUpdateTime
                 }).ToList()!,
                Attachments = consultant.AttachmentModels.Select(x => new AttachmentDTO 
                 { 

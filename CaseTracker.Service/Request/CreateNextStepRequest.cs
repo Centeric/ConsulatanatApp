@@ -38,7 +38,7 @@ namespace CaseTracker.Service.Request
             {
                 ConsultantId = ConsultantId,
                 CommunicationUpdate = CommunicationUpdate,
-                CommunicatioUpdateTime = CommunicationUpdateTime,
+                CommunicationUpdateTime = CommunicationUpdateTime,
                // ConsultationId = ConsultationId,
             };
         }
